@@ -7,10 +7,9 @@ MfiaClient.Models = MfiaClient.Models || {};
 
     MfiaClient.Models.Project = Backbone.Model.extend({
 
-        url: '',
+        url: 'fixtures/projects.json',
 
         initialize: function() {
-            console.log("test");
         },
 
         defaults: {

@@ -17,10 +17,14 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         events: {
             'click #nav-about': 'goToAbout'
+            'click #nav-projects': 'goToProjects'
         },
         goToAbout: function(evt) {
-            Backbone.history.navigate('about', {'trigger': true});
+            Backbone.history.navigate('about', {'trigger': true });
         },
+        // goToProjects: function(evt) {
+        //     Backbone.history.navigate('projects', {'trigger': true })
+        // },
         initialize: function () {
         },
 
