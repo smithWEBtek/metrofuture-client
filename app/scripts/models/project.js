@@ -3,24 +3,26 @@
 MfiaClient.Models = MfiaClient.Models || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    MfiaClient.Models.Project = Backbone.Model.extend({
+  MfiaClient.Models.Project = Backbone.Model.extend({
+    initialize: function(params) {
+        this.park_id = params.id;
+    },
 
-        url: 'fixtures/projects.json',
+    url: function() {
+        return 'fixtures/projects/' + this.park_id + '.json';
+    },
 
-        initialize: function() {
-        },
+    defaults: {
+    },
 
-        defaults: {
-        },
+    validate: function(attrs, options) {
+    },
 
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
-        }
-    });
+    parse: function(response, options)  {
+        return response;
+    }
+  });
 
 })();

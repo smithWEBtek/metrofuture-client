@@ -9,7 +9,7 @@ MfiaClient.Routers = MfiaClient.Routers || {};
       routes: {
         '': 'home',
         'projects/': 'projects',
-        'projects/:project_slug': 'project',
+        'projects/:id': 'project',
         'about': 'about',
         'contact': 'contact'
       },
@@ -22,12 +22,15 @@ MfiaClient.Routers = MfiaClient.Routers || {};
         projects.fetch({'success': function(response) {
           var collectionView = new MfiaClient.Views.Projects({collection: projects});
           MfiaClient.app.getRegion('mainRegion').show(collectionView);
-          console.log(response);
         }});
         
       },
-      project: function() {
-
+      project: function(id) {
+        var project = new MfiaClient.Models.Project({'id': id});
+        project.fetch({'success': function(response) {
+          var projectView = new MfiaClient.Views.Project({model: project});
+          MfiaClient.app.getRegion('mainRegion').show(projectView);
+        }});
       },
       about: function() {
         var about = new MfiaClient.Views.About();
