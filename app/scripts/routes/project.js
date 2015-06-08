@@ -14,13 +14,15 @@ MfiaClient.Routers = MfiaClient.Routers || {};
         'contact': 'contact'
       },
       home: function() {
-
+        var home = new MfiaClient.Views.Home();
+        MfiaClient.app.getRegion('mainRegion').show(home);
       },
       projects: function(queryString) {
         var projects = new MfiaClient.Collections.Projects({'queryString': queryString});
         projects.fetch({'success': function(response) {
           var collectionView = new MfiaClient.Views.Projects({collection: projects});
           MfiaClient.app.getRegion('mainRegion').show(collectionView);
+          console.log(response);
         }});
         
       },

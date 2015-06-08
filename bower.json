@@ -6,7 +6,9 @@
     "jquery": "~2.1.0",
     "underscore": "~1.6.0",
     "backbone": "~1.1.0",
-    "modernizr": "~2.7.1"
+    "modernizr": "~2.7.1",
+    "marionette": "~2.4.1",
+    "materialize": "~0.96.1"
   },
   "devDependencies": {}
 }

@@ -13,18 +13,20 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         id: '',
 
-        className: '',
-
         events: {
-            'click #nav-about': 'goToAbout'
-            'click #nav-projects': 'goToProjects'
+            'click #nav-about': 'goToAbout',
+            'click #nav-projects': 'goToProjects',
+            'click #logo-container': 'goToHome'
         },
         goToAbout: function(evt) {
             Backbone.history.navigate('about', {'trigger': true });
         },
-        // goToProjects: function(evt) {
-        //     Backbone.history.navigate('projects', {'trigger': true })
-        // },
+        goToProjects: function(evt) {
+            Backbone.history.navigate('projects/', {'trigger': true })
+        },
+        goToHome: function(evt) {
+            Backbone.history.navigate('', {'trigger': true })
+        },
         initialize: function () {
         },
 
