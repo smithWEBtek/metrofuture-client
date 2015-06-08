@@ -3,28 +3,32 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    MfiaClient.Views.Home = Backbone.View.extend({
+  MfiaClient.Views.Home = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/home.ejs'],
+    template: JST['app/scripts/templates/home.ejs'],
 
-        tagName: 'div',
+    tagName: 'div',
 
-        id: '',
+    id: '',
 
-        className: '',
+    className: '',
 
-        events: {},
+    events: {},
 
-        initialize: function () {
-            // this.listenTo(this.model, 'change', this.render);
-        },
+    initialize: function () {
+        // this.listenTo(this.model, 'change', this.render);
+    },
 
-        render: function () {
-            this.$el.html(this.template());
-        }
+    render: function () {
+        this.$el.html(this.template());
+    },
 
-    });
+    onShow: function() {
+        $('select').material_select();
+    }
+
+  });
 
 })();
