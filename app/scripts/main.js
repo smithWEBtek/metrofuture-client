@@ -21,7 +21,7 @@ window.MfiaClient = {
 
     new this.Routers.Project();
     this.app.execute("setRouter", MfiaClient.Routers.Project)
-    Backbone.history.start({pushState: true}); 
+    Backbone.history.start(); 
   }
 };
 

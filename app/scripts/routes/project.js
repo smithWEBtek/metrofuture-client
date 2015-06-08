@@ -8,10 +8,10 @@ MfiaClient.Routers = MfiaClient.Routers || {};
     MfiaClient.Routers.Project = Backbone.Router.extend({
       routes: {
         '': 'home',
-        'projects/:queryString': 'projects',
-        'projects/:project_slug': 'project',
+        '/projects/:queryString': 'projects',
+        '/projects/:project_slug': 'project',
         'about': 'about',
-        'contact': 'contact'
+        '/contact': 'contact'
       },
       home: function() {
         var project = new MfiaClient.Models.Project({book: "Javascript!"});
@@ -25,7 +25,6 @@ MfiaClient.Routers = MfiaClient.Routers || {};
 
       },
       about: function() {
-        console.log("About");
         var about = new MfiaClient.Views.About();
         MfiaClient.app.getRegion('mainRegion').show(about)
       },
