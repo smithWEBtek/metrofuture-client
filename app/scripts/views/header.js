@@ -37,8 +37,11 @@ MfiaClient.Views = MfiaClient.Views || {};
         return this;
     },
     onShow: function() {
+        var that = this;
         this.$(".button-collapse").sideNav();
-        this.$(".chosen-select").chosen({width: "90%"});
+        this.$(".chosen-select").chosen({width: "90%"}).on('change', function() {
+            console.log(that.$(".chosen-select").val());
+        });
     }
   });
 })();

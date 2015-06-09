@@ -4,7 +4,7 @@
       <form action="#">
         <select class="chosen-select">
           <% _.each(data, function(option) { %>
-            <option value="1"><%= option.attributes.name %></option>
+            <option value="<%= option.type %>/<%= option.id %>"><%= option.attributes.name %></option>
           <% }); %>
         </select>
       </form>
