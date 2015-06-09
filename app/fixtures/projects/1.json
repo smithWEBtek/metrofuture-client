@@ -1,0 +1,45 @@
+{
+  "_id": "5575cc354fbecfdf50a075f1",
+  "index": 0,
+  "guid": "eb877cd1-d044-4835-8ecb-41783917cb91",
+  "isActive": true,
+  "balance": "$1,384.41",
+  "picture": "http://placehold.it/32x32",
+  "age": 20,
+  "eyeColor": "green",
+  "name": "Madge Combs",
+  "gender": "female",
+  "company": "ESCENTA",
+  "email": "madgecombs@escenta.com",
+  "phone": "+1 (847) 587-3026",
+  "address": "650 Clark Street, Sena, Washington, 7041",
+  "about": "Mollit ut reprehenderit fugiat enim enim cupidatat do culpa eu ullamco. Irure et anim do id nulla ad. Eu sunt deserunt amet sunt consectetur nulla adipisicing dolor id consectetur id. Incididunt magna ad culpa et. Voluptate officia magna laborum cupidatat sit fugiat enim tempor quis commodo labore nulla.\r\n",
+  "registered": "2014-04-15T02:49:58 +04:00",
+  "latitude": 53.484798,
+  "longitude": -41.754446,
+  "tags": [
+    "ullamco",
+    "minim",
+    "veniam",
+    "irure",
+    "laboris",
+    "ullamco",
+    "tempor"
+  ],
+  "friends": [
+    {
+      "id": 0,
+      "name": "Deleon Clay"
+    },
+    {
+      "id": 1,
+      "name": "Stefanie Lawrence"
+    },
+    {
+      "id": 2,
+      "name": "Wise Harding"
+    }
+  ],
+  "greeting": "Hello, Madge Combs! You have 4 unread messages.",
+  "favoriteFruit": "apple"
+}

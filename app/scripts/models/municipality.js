@@ -5,13 +5,12 @@ MfiaClient.Models = MfiaClient.Models || {};
 (function () {
   'use strict';
 
-  MfiaClient.Models.Project = Backbone.Model.extend({
-    initialize: function(params) {
-        this.park_id = params.id;
+  MfiaClient.Models.Municipality = Backbone.Model.extend({
+    url: function(muni_id) {
+      return 'fixtures/municipalities/' + this.muni_id + '.json';
     },
 
-    url: function() {
-        return 'fixtures/projects/' + this.park_id + '.json';
+    initialize: function() {
     },
 
     defaults: {

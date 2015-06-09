@@ -7,7 +7,7 @@ MfiaClient.Regions = MfiaClient.Regions || {};
         el: 'nav', // better yet, pass in as parameter in options hash
 
         initialize: function (options) {
-          console.log("Initialized Region");
+          
         }
 
     });

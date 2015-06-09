@@ -1,4 +1,5 @@
-// $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+// $roboto-font-path: "../bower_components/materialize/font/roboto";
+// $icons-font-path: "../bower_components/materialize/font/material-design-icons";
 
 @import "materialize/sass/materialize";
 
@@ -9,6 +10,24 @@
     padding: 0.2em 0;
 }
 
+.chosen-list-item {
+    min-width: 150px;
+    transition: none;
+}
+
+.chosen-search {
+    input {
+        color: black;
+    }
+}
+
+nav {
+    ul {
+        li.active-result {
+            float: none;
+        }
+    }
+}
 /* Space out content a bit */
 body {
     // padding-top: 20px;

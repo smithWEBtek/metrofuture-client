@@ -1,0 +1,24 @@
+{
+  "data": [{
+    "type": "municipalities",
+    "id": "1",
+    "attributes": {
+      "muni_id": 11,
+      "name": "Ashmont"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/municipalities/1"
+    }
+  },
+  {
+    "type": "municipalities",
+    "id": "2",
+    "attributes": {
+      "muni_id": 25,
+      "name": "Bellingham"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/municipalities/2"
+    }
+  }]
+}

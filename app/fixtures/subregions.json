@@ -1,0 +1,25 @@
+{
+  "data": [{
+    "type": "subregions",
+    "id": "1",
+    "attributes": {
+      "name": "Inner Core Committee",
+      "abbv": "ICC"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/subregions/1"
+    }
+  },
+  {
+    "type": "subregions",
+    "id": "2",
+    "attributes": {
+      "name": "North Shore Task Force",
+      "abbv": "NTSF"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/subregions/2"
+    }
+  }
+  ]
+}
