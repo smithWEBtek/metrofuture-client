@@ -1,45 +1,56 @@
 {
-  "_id": "5575cc354fbecfdf50a075f1",
-  "index": 0,
-  "guid": "eb877cd1-d044-4835-8ecb-41783917cb91",
-  "isActive": true,
-  "balance": "$1,384.41",
-  "picture": "http://placehold.it/32x32",
-  "age": 20,
-  "eyeColor": "green",
-  "name": "Madge Combs",
-  "gender": "female",
-  "company": "ESCENTA",
-  "email": "madgecombs@escenta.com",
-  "phone": "+1 (847) 587-3026",
-  "address": "650 Clark Street, Sena, Washington, 7041",
-  "about": "Mollit ut reprehenderit fugiat enim enim cupidatat do culpa eu ullamco. Irure et anim do id nulla ad. Eu sunt deserunt amet sunt consectetur nulla adipisicing dolor id consectetur id. Incididunt magna ad culpa et. Voluptate officia magna laborum cupidatat sit fugiat enim tempor quis commodo labore nulla.\r\n",
-  "registered": "2014-04-15T02:49:58 +04:00",
-  "latitude": 53.484798,
-  "longitude": -41.754446,
-  "tags": [
-    "ullamco",
-    "minim",
-    "veniam",
-    "irure",
-    "laboris",
-    "ullamco",
-    "tempor"
-  ],
-  "friends": [
-    {
-      "id": 0,
-      "name": "Deleon Clay"
+  "data": {
+    "type": "projects",
+    "id": "1",
+    "attributes": {
+      "title": "Regional Solar / Implementation Phase",
+      "image": "data:image/jpeg;base64,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",
+      "description": "MAPC facilitated a regional procurement of professional solar installation services for multiple municipalities and sites in the MAPC region in fall 2012 that will allow the 17 participating municipalities to enter into Solar Energy Management Service Agreements for solar power on their rooftop and ground facilities. When the developer who was deemed most qualified went under in Winter of 2014, MAPC reconvened the selection committee who ultimately decided to move onto the next most qualified vendor. MAPC signed an MOU with BlueWave Capital in June 2014, and is now providing ongoing support for the community engagement, feasibility discussions, and solar contracting processes.",
+      "location": "TODO",
+      "primary_department": "Clean Energy",
+      "project_manager": "Cameron Peterson",
+      "website": "http://www.mapc.org/regional-solar",
+      "status": "In Progress"
     },
-    {
-      "id": 1,
-      "name": "Stefanie Lawrence"
+    "links": {
+      "self":  "http://api.metrofuture.org/projects/1",
+      "first": "http://api.metrofuture.org/projects/1",
+      "last":  "http://api.metrofuture.org/projects/321",
+      "prev":  null,
+      "next":  "http://api.metrofuture.org/projects/2"
     },
-    {
-      "id": 2,
-      "name": "Wise Harding"
+    "relationships": {
+      "goals": {
+        "links": {
+          "self": "http://api.metrofuture.org/projects/1/relationships/goals",
+          "related": "http://api.metrofuture.org/projects/1/goals"
+        },
+        "data": [
+          { "type": "goals", "id": "5" },
+          { "type": "goals", "id": "12" }
+        ]
+      }
     }
-  ],
-  "greeting": "Hello, Madge Combs! You have 4 unread messages.",
-  "favoriteFruit": "apple"
+  },
+  "included": [{
+    "type": "goals",
+    "id": "5",
+    "attributes": {
+      "goal_id": "32",
+      "body": "Whatever goal 32 says in MetroFuture"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/goals/5"
+    }
+  }, {
+    "type": "goals",
+    "id": "12",
+    "attributes": {
+      "goal_id": "81",
+      "body": "The description of goal 81 in MetroFuture"
+    },
+    "links": {
+      "self": "http://api.metrofuture.org/goals/12"
+    }
+  }]
 }

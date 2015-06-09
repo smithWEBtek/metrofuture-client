@@ -1,12 +1,12 @@
 <div class="card small">
   <div class="card-image">
-    <img src="http://placehold.it/300x200">
-    <span class="card-title"><%= name %></span>
+    <img src="<%= attributes.image %>">
+    <span class="card-title"><%= attributes.title %></span>
   </div>
   <div class="card-content">
-    <p><%= greeting %></p>
+    <p><%= attributes.description %></p>
   </div>
   <div class="card-action">
-    <a href="#projects/1">View This Project</a>
+    <a href="#projects/<%= id %>">View This Project</a>
   </div>
 </div>

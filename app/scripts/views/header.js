@@ -16,7 +16,8 @@ MfiaClient.Views = MfiaClient.Views || {};
     events: {
         'click #nav-about': 'goToAbout',
         'click #nav-projects': 'goToProjects',
-        'click #logo-container': 'goToHome'
+        'click #logo-container': 'goToHome',
+        'change .chosen-select': 'doSearch'
     },
     goToAbout: function(evt) {
         Backbone.history.navigate('about', {'trigger': true });
@@ -28,8 +29,14 @@ MfiaClient.Views = MfiaClient.Views || {};
         Backbone.history.navigate('', {'trigger': true })
     },
     initialize: function () {
-    },
 
+    },
+    doSearch: function() {
+
+        var search = "#projects?" + this.$(".chosen-select").val();
+        console.log(this.$(".chosen-select").val());
+        Backbone.history.navigate(search, {'trigger': true});
+    },
     render: function () {
         var options = {};
         options.data = this.model;
@@ -39,9 +46,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     onShow: function() {
         var that = this;
         this.$(".button-collapse").sideNav();
-        this.$(".chosen-select").chosen({width: "90%"}).on('change', function() {
-            console.log(that.$(".chosen-select").val());
-        });
+        this.$(".chosen-select").chosen({width: "90%"});
     }
   });
 })();

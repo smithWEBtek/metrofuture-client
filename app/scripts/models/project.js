@@ -11,6 +11,7 @@ MfiaClient.Models = MfiaClient.Models || {};
     },
 
     url: function() {
+        //?fields[projects]=title,description,image
         return 'fixtures/projects/' + this.park_id + '.json';
     },
 
@@ -21,7 +22,8 @@ MfiaClient.Models = MfiaClient.Models || {};
     },
 
     parse: function(response, options)  {
-        return response;
+        if (options.collection) return response;
+        return response.data;
     }
   });
 
