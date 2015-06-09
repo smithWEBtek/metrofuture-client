@@ -10,8 +10,7 @@ MfiaClient.Routers = MfiaClient.Routers || {};
         '': 'home',
         'projects/': 'projects',
         'projects/:id': 'project',
-        'about': 'about',
-        'contact': 'contact'
+        'about': 'about'
       },
       home: function() {
         var home = new MfiaClient.Views.Home();
@@ -35,9 +34,6 @@ MfiaClient.Routers = MfiaClient.Routers || {};
       about: function() {
         var about = new MfiaClient.Views.About();
         MfiaClient.app.getRegion('mainRegion').show(about);
-      },
-      contact: function() {
-        
       }
     });
 

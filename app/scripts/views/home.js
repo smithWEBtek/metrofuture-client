@@ -23,10 +23,6 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     render: function () {
         this.$el.html(this.template());
-    },
-
-    onShow: function() {
-        $('select').material_select();
     }
 
   });

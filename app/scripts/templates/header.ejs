@@ -1,12 +1,26 @@
 <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo">MetroFuture in Action</a>
   <ul class="right hide-on-med-and-down">
-    <li><a id="nav-about">About</a></li>
-    <li><a id="nav-projects">Projects</a></li>
+    <li class="chosen-list-item">
+      <form action="#">
+        <select class="chosen-select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </form>
+    </li>
   </ul>
-
   <ul id="nav-mobile" class="side-nav">
-    <li><a id="nav-about">About</a></li>
-    <li><a id="nav-projects">Projects</a></li>
+    <li>
+      <form action="#">
+        <select class="chosen-select">
+          <option value="" disabled selected>Municipality</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </form>
+    </li>
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 </div>
