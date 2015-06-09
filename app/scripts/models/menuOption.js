@@ -5,11 +5,9 @@ MfiaClient.Models = MfiaClient.Models || {};
 (function () {
     'use strict';
 
-    MfiaClient.Models.Subregion = Backbone.Model.extend({
+    MfiaClient.Models.MenuOption = Backbone.Model.extend({
 
-        url: function(subregion_id) {
-          return 'fixtures/subregions/' + this.subregion_id + '.json';
-        },
+        url: '',
 
         initialize: function() {
         },

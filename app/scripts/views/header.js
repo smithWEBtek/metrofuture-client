@@ -5,7 +5,7 @@ MfiaClient.Views = MfiaClient.Views || {};
 (function () {
   'use strict';
 
-  MfiaClient.Views.Header = Backbone.Marionette.View.extend({
+  MfiaClient.Views.Header = Backbone.View.extend({
 
     template: JST['app/scripts/templates/header.ejs'],
 
@@ -31,13 +31,14 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     render: function () {
-        this.$el.html(this.template());
+        var options = {};
+        options.data = this.model;
+        this.$el.html(this.template(options));
         return this;
     },
     onShow: function() {
         this.$(".button-collapse").sideNav();
         this.$(".chosen-select").chosen({width: "90%"});
-        console.log("SHOWN");
     }
   });
 })();
