@@ -3,30 +3,32 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+  'use strict';
 
-    MfiaClient.Views.Project = Backbone.View.extend({
+  MfiaClient.Views.Project = Backbone.View.extend({
 
-        template: JST['app/scripts/templates/project.ejs'],
+    template: JST['app/scripts/templates/project.ejs'],
 
-        tagName: 'div',
+    tagName: 'div',
 
-        id: '',
+    id: '',
 
-        className: '',
+    className: '',
 
-        events: {},
+    initialize: function () {
+        this.listenTo(this.model, 'change', this.render);
+    },
 
-        initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
-        },
+    render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+        return this;
+    },
 
-        render: function () {
-            console.log(this.model);
-            this.$el.html(this.template(this.model.toJSON()));
-            return this;
-        }
+    onShow: function () {
+        this.$('.parallax').parallax();
+        this.$('.pushpin .button').pushpin({offset: 320});
+    }
 
-    });
+  });
 
 })();

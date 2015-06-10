@@ -1,5 +1,5 @@
-// $roboto-font-path: "../bower_components/materialize/font/roboto";
-// $icons-font-path: "../bower_components/materialize/font/material-design-icons";
+$roboto-font-path: "font/roboto/";
+$icons-font-path: "font/material-design-icons/";
 
 @import "materialize/sass/materialize";
 
@@ -13,6 +13,20 @@
 .chosen-list-item {
     min-width: 150px;
     transition: none;
+}
+
+.previous-article {
+    border-radius: 50%;
+    left:0;
+    color: #888;
+    cursor: pointer;
+}
+
+.next-article {
+    border-radius: 50%;
+    right:0;
+    color: #888;
+    cursor: pointer;
 }
 
 .chosen-search {

@@ -7,9 +7,9 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     MfiaClient.Views.Projects = Backbone.Marionette.CompositeView.extend({
 
-        childView: MfiaClient.Views.Project,
         template: JST['app/scripts/templates/projects.ejs'],
-        childViewContainer: "#projects"
+        childView: MfiaClient.Views.ProjectCard,
+        childViewContainer: "#projects-grid"
 
     });
 

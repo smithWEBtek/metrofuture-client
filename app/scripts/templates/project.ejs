@@ -1,19 +1,36 @@
-<div class="card small">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="<%= attributes.image %>">
-  </div>
-  <div class="card-content">
-    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
-    <p class="truncate"><%= attributes.description %></p>
-  </div>
-  <div class="card-action">
-    <a href="#projects/<%= id %>">View This Project</a>
-  </div>
-  <div class="card-reveal">
-    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
-    <p><%= attributes.description %></p>
-    <div class="card-action">
-      <a href="#projects/<%= id %>">View This Project</a>
+<div class="parallax-container">
+  <div class="parallax"><img src="<%= attributes.image %>"></div>
+</div>
+
+<div class="section container">
+  <div class="row">
+    <div class="col s12 m4 l4">
+      <h5><i class="mdi-av-loop small left"></i><%= attributes.status %></h5>
+    </div>
+    <div class="col s12 m4 l4">
+      <h5><i class="mdi-maps-place small left"></i><%= attributes.location %></h5>
+    </div>
+    <div class="col s12 m4 l4">
+      <h5><i class="mdi-content-link small left"></i><a href="<%= attributes.website %>">Website</a></h5>
     </div>
   </div>
+
+  <h4 class="truncate"><%= attributes.title %></h4>
+  <p class="flow-text"><%= attributes.description %></p>
+
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <h6>Primary Department</h6>
+      <h5><%= attributes.primary_department %><h5>
+    </div>
+    <div class="col s12 m6 l6">
+      <h6>Project Manager</h6>
+      <h5><%= attributes.project_manager %></h5>
+    </div>
+  </div>
+</div>
+
+<div class="pushpin">
+  <a href="#<%= links.prev %>"><i id="previous-article" class="mdi-navigation-chevron-left large tooltipped previous-article button" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i></a>
+  <i id="next-article" class="mdi-navigation-chevron-right large tooltipped next-article button" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i>
 </div>
