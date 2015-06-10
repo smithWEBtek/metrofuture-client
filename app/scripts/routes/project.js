@@ -7,14 +7,10 @@ MfiaClient.Routers = MfiaClient.Routers || {};
 
     MfiaClient.Routers.Project = Backbone.Router.extend({
       routes: {
-        '': 'home',
+        '': 'projects',
         'projects': 'projects',
         'projects/:id': 'project',
         'about': 'about'
-      },
-      home: function() {
-        var home = new MfiaClient.Views.Home();
-        MfiaClient.app.getRegion('mainRegion').show(home);
       },
       projects: function(queryString) {
         var projects = new MfiaClient.Collections.Projects({'queryString': queryString});
