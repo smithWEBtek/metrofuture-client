@@ -1,8 +1,10 @@
 <div class="col s12 m6 l4">
   <div class="card small">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="#projects/<%= id %>"><img src="<%= attributes.image %>"></a>
-    </div>
+    <% if (attributes.image) { %>
+      <div class="card-image waves-effect waves-block waves-light">
+        <a href="#projects/<%= id %>"><img src="<%= attributes.image %>"></a>
+      </div>
+    <% } %>
     <div class="card-content">
       <span class="activator card-title grey-text text-darken-4 truncate"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span>
       <p class="truncate"><%= attributes.description %></p>

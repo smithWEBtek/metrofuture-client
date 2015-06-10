@@ -7,12 +7,12 @@
     <div class="col s12 m4 l4">
       <h6><i class="mdi-av-loop small left"></i><%= attributes.status %></h6>
     </div>
-    <div class="col s12 m4 l4">
-      <h6><i class="mdi-maps-place small left"></i><%= attributes.location %></h6>
-    </div>
-    <div class="col s12 m4 l4">
-      <h6><i class="mdi-content-link small left"></i><a href="<%= attributes.website %>">Website</a></h6>
-    </div>
+
+    <% if (attributes.website !== null) { %>
+      <div class="col s12 m4 l4">
+        <h6><i class="mdi-content-link small left"></i><a href="<%= attributes.website %>">Website</a></h6>
+      </div>
+    <% } %>
   </div>
 
   <h4 class="truncate"><%= attributes.title %></h4>
@@ -29,17 +29,71 @@
   </div>
 </div>
 
+
+<div class="section container">
+  <i class="mdi-maps-place small left"></i><h6>Municipalities</h6>
+  <div class="">
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>
+      </a>
+  </div>
+</div>
+
+<div class="section container">
+  <i class="mdi-maps-place small left"></i><h6>Subregions</h6>
+  <div class="">
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>,
+            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        Boston
+      </a>
+  </div>
+</div>
+
+
 <div class="section container">
   <h6>MetroFuture Goals</h6>
   <div class="collection">
-    <% included.forEach(function(goal){ %>
-      <a href="http://regionalindicators.live.mapc.org/goals/<%= goal.attributes.goal_id %>" class="collection-item">
-        MetroFuture Goal <strong><%= goal.attributes.goal_id %></strong>: <%= goal.attributes.body %>
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        MetroFuture Goal <strong>32</strong>: A Description
         <i class="mdi-content-send right"></i>
       </a>
-    <% }) %>
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        MetroFuture Goal <strong>32</strong>: A Description
+        <i class="mdi-content-send right"></i>
+      </a>
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        MetroFuture Goal <strong>32</strong>: A Description
+        <i class="mdi-content-send right"></i>
+      </a>
+      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
+        MetroFuture Goal <strong>32</strong>: A Description
+        <i class="mdi-content-send right"></i>
+      </a>
   </div>
 </div>
+
+
 
 <div class="pushpin">
   <a href="<%= links.prev %>" class="pushpin btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Previous Project"><i class="mdi-navigation-chevron-left"></i></a>

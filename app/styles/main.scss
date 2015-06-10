@@ -55,6 +55,15 @@ $icons-font-path: "font/material-design-icons/";
     cursor: pointer;
 }
 
+.arrow-down {
+    width: 0; 
+    height: 0;
+    color: black;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid green;
+}
+
 nav {
     ul {
         li {
