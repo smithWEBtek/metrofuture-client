@@ -15,6 +15,10 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     className: '',
 
+    scrubLink: function (url_string, rm) {
+        return url_string.replace(rm, "")
+    },
+
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
         return this;

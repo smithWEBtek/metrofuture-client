@@ -9,6 +9,9 @@ window.MfiaClient = {
   init: function () {
     'use strict';
 
+    //API Endpoint
+    MfiaClient.API = "fixtures/projects"
+
     //intitialize Marionette app
     this.app = new Marionette.Application();
 
@@ -43,9 +46,6 @@ window.MfiaClient = {
       }});
     }});
 
-    // render about
-    that.app.getRegion('aboutRegion').show(new that.Views.About());
-
     // render footer 
     that.app.getRegion('footerRegion').show(new that.Views.Footer());
 
@@ -54,6 +54,10 @@ window.MfiaClient = {
     MfiaClient.Routers.Project.on("route", function () {
       that.app.trigger("routed");
     });
+
+    // render about
+    that.app.getRegion('aboutRegion').show(new that.Views.About({}));
+
     Backbone.history.start(); 
   }
 };

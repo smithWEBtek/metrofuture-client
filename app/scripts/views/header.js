@@ -32,6 +32,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
     initialize: function () {
         var that = this;
+
         MfiaClient.app.on("loading", function() {
             console.log("loading");
             that.$(".progress").show();

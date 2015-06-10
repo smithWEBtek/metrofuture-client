@@ -29,7 +29,6 @@
   </div>
 </div>
 
-
 <div class="section container">
   <i class="mdi-maps-place small left"></i><h6>Municipalities</h6>
   <div class="">
@@ -96,6 +95,10 @@
 
 
 <div class="pushpin">
-  <a href="<%= links.prev %>" class="pushpin btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Previous Project"><i class="mdi-navigation-chevron-left"></i></a>
-  <a href="<%= links.next %>" class="pushpin btn-floating btn-large waves-effect waves-light right indigo darken-4 lighten-1 next-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Next Project"><i class="mdi-navigation-chevron-right"></i></a>
+  <% if (links.prev !== null) { %>
+    <a href="#<%= this.scrubLink(links.prev, MfiaClient.API) %>" class="pushpin btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Previous Project"><i class="mdi-navigation-chevron-left"></i></a>
+  <% } %>
+  <% if (links.next !== null) { %>
+    <a href="#<%= this.scrubLink(links.next, MfiaClient.API) %>" class="pushpin btn-floating btn-large waves-effect waves-light right indigo darken-4 lighten-1 next-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Next Project"><i class="mdi-navigation-chevron-right"></i></a>
+  <% } %>
 </div>
