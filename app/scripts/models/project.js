@@ -25,6 +25,9 @@ MfiaClient.Models = MfiaClient.Models || {};
     parse: function(response, options)  {
         //Backbone doesn't really know if the REST response is coming directly 
         //from the API or being passed via collection
+        if (response.included !== undefined) {
+            response.data.included = response.included;
+        }
         if (options.collection) return response;
         return response.data;
     }

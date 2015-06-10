@@ -21,8 +21,8 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     onShow: function () {
-        var that = this;
         this.$('.parallax').parallax();
+        this.$('.tooltipped').tooltip();
     }
 
   });

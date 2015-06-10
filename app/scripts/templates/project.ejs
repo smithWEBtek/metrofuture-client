@@ -29,7 +29,19 @@
   </div>
 </div>
 
+<div class="section container">
+  <h6>MetroFuture Goals</h6>
+  <div class="collection">
+    <% included.forEach(function(goal){ %>
+      <a href="http://regionalindicators.live.mapc.org/goals/<%= goal.attributes.goal_id %>" class="collection-item">
+        MetroFuture Goal <strong><%= goal.attributes.goal_id %></strong>: <%= goal.attributes.body %>
+        <i class="mdi-content-send right"></i>
+      </a>
+    <% }) %>
+  </div>
+</div>
+
 <div class="pushpin">
-  <a href="<%= links.prev %>" class="btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article"><i class="mdi-navigation-chevron-left"></i></a>
-  <a href="<%= links.next %>" class="btn-floating btn-large waves-effect waves-light right indigo darken-4 lighten-1 next-article"><i class="mdi-navigation-chevron-right"></i></a>
+  <a href="<%= links.prev %>" class="pushpin btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Previous Project"><i class="mdi-navigation-chevron-left"></i></a>
+  <a href="<%= links.next %>" class="pushpin btn-floating btn-large waves-effect waves-light right indigo darken-4 lighten-1 next-article tooltipped" data-position="bottom" data-delay="50" data-tooltip="Next Project"><i class="mdi-navigation-chevron-right"></i></a>
 </div>
