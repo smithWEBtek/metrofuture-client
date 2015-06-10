@@ -17,7 +17,6 @@
 
   <h4 class="truncate"><%= attributes.title %></h4>
   <p class="flow-text"><%= attributes.description %></p>
-
   <div class="row">
     <div class="col s12 m6 l6">
       <h6>Primary Department</h6>
@@ -31,6 +30,6 @@
 </div>
 
 <div class="pushpin">
-  <a href="#<%= links.prev %>"><i id="previous-article" class="mdi-navigation-chevron-left large tooltipped previous-article button" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i></a>
-  <i id="next-article" class="mdi-navigation-chevron-right large tooltipped next-article button" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i>
+  <a href="<%= links.prev %>" class="btn-floating btn-large waves-effect waves-light left indigo darken-4 lighten-1 previous-article"><i class="mdi-navigation-chevron-left"></i></a>
+  <a href="<%= links.next %>" class="btn-floating btn-large waves-effect waves-light right indigo darken-4 lighten-1 next-article"><i class="mdi-navigation-chevron-right"></i></a>
 </div>

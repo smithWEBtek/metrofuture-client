@@ -16,23 +16,43 @@ $icons-font-path: "font/material-design-icons/";
 }
 
 .previous-article {
-    border-radius: 50%;
-    left:0;
+    left:2%;
     color: #888;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .next-article {
-    border-radius: 50%;
-    right:0;
+    right:2%;
     color: #888;
     cursor: pointer;
+    opacity: 0.5;
+}
+
+.pushpin {
+    top:50%;
+    position: fixed;
+    width: 100%;
 }
 
 .chosen-search {
     input {
         color: black;
     }
+}
+
+.about-section-collapsed {
+    cursor: pointer;
+}
+
+.progress {
+    margin:0;
+    position:fixed;
+    top:0px;
+}
+
+#hideAbout {
+    cursor: pointer;
 }
 
 nav {
@@ -105,7 +125,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        max-width: 1000px;
     }
 
     /* Remove the padding we set earlier */
@@ -123,4 +143,25 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+/* Fade */
+.hvr-fade {
+  // display: inline-block;
+  // vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  // overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #2098d1;
+  color: white;
 }

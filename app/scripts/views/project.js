@@ -23,7 +23,6 @@ MfiaClient.Views = MfiaClient.Views || {};
     onShow: function () {
         var that = this;
         this.$('.parallax').parallax();
-        this.$('.pushpin .button').pushpin({offset: 320});
     }
 
   });

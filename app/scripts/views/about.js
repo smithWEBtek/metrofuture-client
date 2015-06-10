@@ -15,9 +15,35 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         className: '',
 
-        events: {},
+        events: {
+            'click #about-section-collapsed': 'showAbout',
+            'click #hideAbout': 'hideAbout'
+        },
+
+        visibleOnce: false,
+
+        showAbout: function () {
+            this.$('#about-section').slideDown();
+            this.$('#about-section-collapsed').hide();
+        },
+
+        hideAbout: function () {
+            this.$('#about-section').slideUp();
+            this.$('#about-section-collapsed').show();
+        },
 
         initialize: function () {
+            this.listenTo(MfiaClient.app, "routed", function() {
+                var that = this;
+                if (!this.visibleOnce) {
+                    this.visibleOnce = true;
+                } else {
+                    this.$('#about-section').slideUp("slow",function() {
+                        that.$('#about-section-collapsed').show();
+                    });
+                    
+                }
+            });
         },
 
         render: function () {

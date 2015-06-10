@@ -15,7 +15,9 @@ window.MfiaClient = {
     //add regions for full layout
     this.app.addRegions({
         navRegion: '#header',
-        mainRegion: '#main'
+        mainRegion: '#main',
+        footerRegion: '#footer',
+        aboutRegion: '#about'
     });
 
     //this logic needs to be moved somewhere else 
@@ -24,6 +26,8 @@ window.MfiaClient = {
     var options = [];
     var municipalities = new MfiaClient.Collections.Municipalities();
     
+
+    //fetch data for dropdown, render HEADER
     municipalities.fetch({'success': function(municipalities_response) {
       _.map(municipalities.toJSON(), function(option) {
         options.push(option);
@@ -39,8 +43,17 @@ window.MfiaClient = {
       }});
     }});
 
-    new this.Routers.Project();
+    // render about
+    that.app.getRegion('aboutRegion').show(new that.Views.About());
+
+    // render footer 
+    that.app.getRegion('footerRegion').show(new that.Views.Footer());
+
+    MfiaClient.Routers.Project = new this.Routers.Project();
     this.app.execute("setRouter", MfiaClient.Routers.Project);
+    MfiaClient.Routers.Project.on("route", function () {
+      that.app.trigger("routed");
+    });
     Backbone.history.start(); 
   }
 };

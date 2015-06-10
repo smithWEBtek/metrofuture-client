@@ -7,7 +7,16 @@ MfiaClient.Collections = MfiaClient.Collections || {};
 
   MfiaClient.Collections.Projects = Backbone.Collection.extend({
     model: MfiaClient.Models.Project,
-    url: 'fixtures/projects.json?fields[projects]=title,description,image',
+    initialize: function(options) {
+      this.queryString = options.queryString || null;
+    },
+    url: function() {
+      var full_url = 'fixtures/projects.json?fields[projects]=title,description,image';
+      if(!null) {
+        full_url = full_url + "&" + this.queryString;
+      }
+      return full_url;
+    },
     parse: function(response) {
       return response.data;
     }

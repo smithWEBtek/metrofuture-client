@@ -4,7 +4,7 @@ MfiaClient.Regions = MfiaClient.Regions || {};
 
     MfiaClient.Regions.Header = Backbone.Marionette.Region.extend({
 
-        el: 'nav', // better yet, pass in as parameter in options hash
+        el: 'div', // better yet, pass in as parameter in options hash
 
         initialize: function (options) {
           

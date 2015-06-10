@@ -14,7 +14,6 @@ MfiaClient.Routers = MfiaClient.Routers || {};
       },
       projects: function(queryString) {
         var projects = new MfiaClient.Collections.Projects({'queryString': queryString});
-
         MfiaClient.app.trigger("loading");
         projects.fetch({'success': function(response) {
           setTimeout(function() {
