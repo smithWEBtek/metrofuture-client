@@ -29,12 +29,17 @@ MfiaClient.Views = MfiaClient.Views || {};
         Backbone.history.navigate('', {'trigger': true })
     },
     initialize: function () {
-
+        var that = this;
+        MfiaClient.app.on("loading", function() {
+            that.$(".progress").show();
+        });
+        MfiaClient.app.on("loaded", function() {
+            that.$(".progress").hide();
+        });
     },
     doSearch: function() {
-
         var search = "#projects?" + this.$(".chosen-select").val();
-        console.log(this.$(".chosen-select").val());
+        MfiaClient.app.trigger("hideabout");
         Backbone.history.navigate(search, {'trigger': true});
     },
     render: function () {

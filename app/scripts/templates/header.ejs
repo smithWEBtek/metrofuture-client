@@ -1,4 +1,5 @@
-<div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate">MetroFuture in Action</a>
+<div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only">MetroFuture in Action</a>
+<a id="logo-container" href="/#" class="hide-on-med-and-up small">MetroFuture in Action</a>
   <ul class="right hide-on-med-and-down">
     <li class="chosen-list-item">
       <form action="#">
@@ -14,13 +15,15 @@
     <li>
       <form action="#">
         <select class="chosen-select">
-          <option value="" disabled selected>Municipality</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <% _.each(data, function(option) { %>
+            <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
+          <% }); %>
         </select>
       </form>
     </li>
   </ul>
   <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</div>
+<div class="progress">
+  <div class="indeterminate"></div>
 </div>

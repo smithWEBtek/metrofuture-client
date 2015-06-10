@@ -15,16 +15,13 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     className: '',
 
-    initialize: function () {
-        this.listenTo(this.model, 'change', this.render);
-    },
-
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
         return this;
     },
 
     onShow: function () {
+        var that = this;
         this.$('.parallax').parallax();
         this.$('.pushpin .button').pushpin({offset: 320});
     }

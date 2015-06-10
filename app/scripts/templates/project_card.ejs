@@ -1,22 +1,16 @@
-<div class="card small">
-  <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src="<%= attributes.image %>">
-  </div>
-  <div class="card-content">
-    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
-    <p class="truncate"><%= attributes.description %></p>
-  </div>
-  <div class="card-action">
-    <a href="#projects/<%= id %>">View This Project</a>
-  </div>
-  <div class="card-reveal">
-    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
-    <p><%= attributes.description %></p>
-    <div class="card-action">
+<div class="col s12 m6 l6">
+  <div class="card small">
+    <div class="card-image waves-effect waves-block waves-light">
+      <a href="#projects/<%= id %>"><img src="<%= attributes.image %>"></a>
+    </div>
+    <div class="card-content">
+      <span class="activator card-title grey-text text-darken-4 truncate"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span>
+      <p class="truncate"><%= attributes.description %></p>
+    </div>
+    <div class="card-reveal">
+      <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
       <a href="#projects/<%= id %>">View This Project</a>
+      <p><%= attributes.description %></p>
     </div>
   </div>
 </div>
-
-
-

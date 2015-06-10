@@ -19,11 +19,9 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
-            console.log("test");
         },
 
         render: function () {
-            console.log(this.template);
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         }

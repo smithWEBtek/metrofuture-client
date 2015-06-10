@@ -1,6 +1,5 @@
 /*global MfiaClient, $*/
 
-
 window.MfiaClient = {
   Models: {},
   Collections: {},
@@ -24,7 +23,7 @@ window.MfiaClient = {
     var that = this;
     var options = [];
     var municipalities = new MfiaClient.Collections.Municipalities();
-
+    
     municipalities.fetch({'success': function(municipalities_response) {
       _.map(municipalities.toJSON(), function(option) {
         options.push(option);

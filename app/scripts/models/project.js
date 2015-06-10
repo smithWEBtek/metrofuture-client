@@ -8,6 +8,7 @@ MfiaClient.Models = MfiaClient.Models || {};
   MfiaClient.Models.Project = Backbone.Model.extend({
     initialize: function(params) {
         this.park_id = params.id;
+
     },
 
     url: function() {
