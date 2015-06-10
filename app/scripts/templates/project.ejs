@@ -1,12 +1,19 @@
 <div class="card small">
-  <div class="card-image">
-    <img src="http://placehold.it/300x200">
-    <span class="card-title"><%= name %></span>
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="<%= attributes.image %>">
   </div>
   <div class="card-content">
-    <p><%= greeting %></p>
+    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
+    <p class="truncate"><%= attributes.description %></p>
   </div>
   <div class="card-action">
-    <a href="#projects/1">View This Project</a>
+    <a href="#projects/<%= id %>">View This Project</a>
+  </div>
+  <div class="card-reveal">
+    <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
+    <p><%= attributes.description %></p>
+    <div class="card-action">
+      <a href="#projects/<%= id %>">View This Project</a>
+    </div>
   </div>
 </div>
