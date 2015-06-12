@@ -3,6 +3,10 @@ $icons-font-path: "font/material-design-icons/";
 
 @import "materialize/sass/materialize";
 
+.progress {
+    z-index: 1000;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -53,6 +57,10 @@ $icons-font-path: "font/material-design-icons/";
 
 #hideAbout {
     cursor: pointer;
+}
+
+#about {
+    height: 90%;
 }
 
 .arrow-down {

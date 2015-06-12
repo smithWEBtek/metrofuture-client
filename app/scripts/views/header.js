@@ -60,6 +60,33 @@ MfiaClient.Views = MfiaClient.Views || {};
         var that = this;
         this.$(".button-collapse").sideNav();
         this.$(".chosen-select").chosen({width: "90%"});
+        
+        // $(function(){
+        //   that.$('nav').data('size','big');
+        // });
+
+        // $(window).scroll(function(){
+        //   if($(document).scrollTop() > 0)
+        // {
+        //     if(that.$('nav').data('size') == 'big')
+        //     {
+        //         that.$('nav').data('size','small');
+        //         that.$('nav').stop().animate({
+        //             height:'40px'
+        //         },600);
+        //     }
+        // }
+        // else
+        //   {
+        //     if(that.$('nav').data('size') == 'small')
+        //       {
+        //         that.$('nav').data('size','big');
+        //         that.$('nav').stop().animate({
+        //             height:'100px'
+        //         },600);
+        //       }  
+        //   }
+        // });
     }
   });
 })();

@@ -26,6 +26,18 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+        aws: grunt.file.readJSON("aws-credentials.json"),
+        s3: {
+          options: {
+            accessKeyId: "<%= aws.accessKeyId %>",
+            secretAccessKey: "<%= aws.secretAccessKey %>",
+            bucket: "my-awesome-bucket"
+          },
+          build: {
+            cwd: "dist/",
+            src: "**"
+          }
+        },
         yeoman: yeomanConfig,
         watch: {
             options: {
@@ -305,6 +317,8 @@ module.exports = function (grunt) {
             return grunt.task.run(testTasks);
         }
     });
+
+    grunt.loadNpmTasks('grunt-aws');
 
     grunt.registerTask('build', [
         'clean:dist',

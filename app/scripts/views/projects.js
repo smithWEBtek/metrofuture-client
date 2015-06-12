@@ -7,14 +7,25 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     MfiaClient.Views.Projects = Backbone.Marionette.CompositeView.extend({
         initialize: function () {
-            // MfiaClient.app.listenTo('closeabout', this.closeabout);
+
         },
         closeabout: function () {
             this.$('#about-section').slideUp()
         },
         template: JST['app/scripts/templates/projects.ejs'],
         childView: MfiaClient.Views.ProjectCard,
-        childViewContainer: "#projects-grid"
+        childViewContainer: "#projects-grid",
+        onShow: function () {
+            var that = this;
+            $(window).scroll(function() {
+               if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                    if (that.collection.links.next !== null){
+                       that.collection.getNextPage({remove:false});
+                    }
+               }
+            });
+            
+        }
 
     });
 
