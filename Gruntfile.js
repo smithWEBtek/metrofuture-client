@@ -26,6 +26,18 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+        aws: grunt.file.readJSON("aws-credentials.json"),
+        s3: {
+          options: {
+            accessKeyId: "<%= aws.accessKeyId %>",
+            secretAccessKey: "<%= aws.secretAccessKey %>",
+            bucket: "staging.projects.metrofuture.org"
+          },
+          build: {
+            cwd: "dist/",
+            src: "**"
+          }
+        },
         yeoman: yeomanConfig,
         watch: {
             options: {
@@ -240,7 +252,8 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        //not currently a good way to do this for images in js templates
+                        // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '/styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
@@ -305,6 +318,8 @@ module.exports = function (grunt) {
             return grunt.task.run(testTasks);
         }
     });
+
+    grunt.loadNpmTasks('grunt-aws');
 
     grunt.registerTask('build', [
         'clean:dist',

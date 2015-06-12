@@ -8,7 +8,7 @@ MfiaClient.Models = MfiaClient.Models || {};
     MfiaClient.Models.Subregion = Backbone.Model.extend({
 
         url: function(subregion_id) {
-          return 'fixtures/subregions/' + this.subregion_id + '.json';
+          return MfiaClient.API + '/subregions/' + this.subregion_id;
         },
 
         initialize: function() {

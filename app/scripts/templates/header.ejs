@@ -1,9 +1,9 @@
-<div class="progress">
+<!-- <div class="progress">
   <div class="indeterminate"></div>
-</div>
+</div> -->
 <nav class="indigo darken-4" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only">MetroFuture in Action</a>
-  <a id="logo-container" href="/#" class="hide-on-med-and-up small">MetroFuture in Action</a>
+  <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only"  style="font-family: Futura, Futura-Medium, 'Futura Medium';">METROFUTURE IN ACTION</a>
+  <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
     <ul class="right hide-on-med-and-down">
       <li class="chosen-list-item">
         <form action="#">
@@ -18,7 +18,7 @@
     <ul id="nav-mobile" class="side-nav">
       <li>
         <form action="#">
-          <select class="chosen-select">
+          <select class="chosen-select" data-placeholder="LOL HI">
             <% _.each(data, function(option) { %>
               <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
             <% }); %>

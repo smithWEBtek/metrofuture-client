@@ -32,6 +32,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
     initialize: function () {
         var that = this;
+
         MfiaClient.app.on("loading", function() {
             console.log("loading");
             that.$(".progress").show();
@@ -58,7 +59,12 @@ MfiaClient.Views = MfiaClient.Views || {};
     onShow: function() {
         var that = this;
         this.$(".button-collapse").sideNav();
-        this.$(".chosen-select").chosen({width: "90%"});
+        this.$(".chosen-select").chosen({
+            width: "100%",
+            no_results_text: "No results found for"
+        });
+        this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
+        this.$("a.chosen-single span").text("Viewing all projects");
     }
   });
 })();

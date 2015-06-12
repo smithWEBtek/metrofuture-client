@@ -13,7 +13,7 @@ MfiaClient.Models = MfiaClient.Models || {};
 
     url: function() {
         //?fields[projects]=title,description,image
-        return 'fixtures/projects/' + this.park_id + '.json';
+        return MfiaClient.API + "/projects/" + this.park_id + '?include=municipalities';
     },
 
     defaults: {

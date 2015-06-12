@@ -15,12 +15,18 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     className: '',
 
+    scrubLink: function (url_string, rm) {
+        console.log(url_string);
+        return url_string.replace(rm, "")
+    },
+
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
         return this;
     },
 
     onShow: function () {
+        console.log(this.model);
         this.$('.parallax').parallax();
         this.$('.tooltipped').tooltip();
     }
