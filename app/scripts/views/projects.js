@@ -20,7 +20,10 @@ MfiaClient.Views = MfiaClient.Views || {};
             $(window).scroll(function() {
                if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
                     if (that.collection.links.next !== null){
-                       that.collection.getNextPage({remove:false});
+                        MfiaClient.app.trigger("loading");
+                        that.collection.getNextPage({remove:false, "success": function () {
+                            MfiaClient.app.trigger("loaded");
+                        }});
                     }
                }
             });

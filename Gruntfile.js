@@ -31,7 +31,7 @@ module.exports = function (grunt) {
           options: {
             accessKeyId: "<%= aws.accessKeyId %>",
             secretAccessKey: "<%= aws.secretAccessKey %>",
-            bucket: "my-awesome-bucket"
+            bucket: "staging.projects.metrofuture.org"
           },
           build: {
             cwd: "dist/",
@@ -252,7 +252,8 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        //not currently a good way to do this for images in js templates
+                        // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '/styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]

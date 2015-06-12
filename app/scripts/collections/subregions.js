@@ -7,7 +7,9 @@ MfiaClient.Collections = MfiaClient.Collections || {};
 
     MfiaClient.Collections.Subregions = Backbone.Collection.extend({
       model: MfiaClient.Models.Subregion,
-      url: 'fixtures/subregions.json',
+      url: function () {
+        return MfiaClient.API + '/subregions';
+      },
       parse: function(response) {
         return response.data;
       }
