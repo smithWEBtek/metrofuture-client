@@ -59,34 +59,12 @@ MfiaClient.Views = MfiaClient.Views || {};
     onShow: function() {
         var that = this;
         this.$(".button-collapse").sideNav();
-        this.$(".chosen-select").chosen({width: "90%"});
-        
-        // $(function(){
-        //   that.$('nav').data('size','big');
-        // });
-
-        // $(window).scroll(function(){
-        //   if($(document).scrollTop() > 0)
-        // {
-        //     if(that.$('nav').data('size') == 'big')
-        //     {
-        //         that.$('nav').data('size','small');
-        //         that.$('nav').stop().animate({
-        //             height:'40px'
-        //         },600);
-        //     }
-        // }
-        // else
-        //   {
-        //     if(that.$('nav').data('size') == 'small')
-        //       {
-        //         that.$('nav').data('size','big');
-        //         that.$('nav').stop().animate({
-        //             height:'100px'
-        //         },600);
-        //       }  
-        //   }
-        // });
+        this.$(".chosen-select").chosen({
+            width: "100%",
+            no_results_text: "No results found for"
+        });
+        this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
+        this.$("a.chosen-single span").text("Viewing all projects");
     }
   });
 })();
