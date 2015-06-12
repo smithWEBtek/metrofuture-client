@@ -8,9 +8,15 @@ MfiaClient.Models = MfiaClient.Models || {};
   MfiaClient.Models.Project = Backbone.Model.extend({
     initialize: function(params) {
         this.park_id = params.id;
+        this.on("request", function() {
+            MfiaClient.app.trigger("loading");
+        });
+
+        this.on("sync", function() {
+            MfiaClient.app.trigger("loaded");
+        });
 
     },
-
     url: function() {
         //?fields[projects]=title,description,image
         return MfiaClient.API + "/projects/" + this.park_id + '?include=municipalities';

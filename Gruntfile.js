@@ -150,7 +150,7 @@ module.exports = function (grunt) {
                 cssDir: '.tmp/styles',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/font',
+                fontsDir: '<%= yeoman.app %>/styles/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
                 // raw: 'add_import_path "bower_components/" \n',
                 relativeAssets: true
@@ -233,7 +233,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
-                        'styles/font/{,*/}*.*',
+                        'styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }]
@@ -254,7 +254,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
                         //not currently a good way to do this for images in js templates
                         // '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '/styles/font/{,*/}*.*',
+                        '/styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }
@@ -327,7 +327,7 @@ module.exports = function (grunt) {
         'jst',
         'compass:dist',
         'useminPrepare',
-        'imagemin',
+        // 'imagemin',
         'htmlmin',
         'concat',
         'cssmin',

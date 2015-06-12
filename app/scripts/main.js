@@ -58,6 +58,13 @@ window.MfiaClient = {
     // render about
     that.app.getRegion('aboutRegion').show(new that.Views.About({}));
 
+    MfiaClient.app.on("loading", function() {
+        $(".progress").show();
+    });
+    MfiaClient.app.on("loaded", function() {
+        $(".progress").hide();
+    });
+
     Backbone.history.start(); 
   }
 };

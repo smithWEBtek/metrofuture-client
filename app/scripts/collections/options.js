@@ -7,7 +7,6 @@ MfiaClient.Collections = MfiaClient.Collections || {};
 
     MfiaClient.Collections.Options = Backbone.Collection.extend({
         model: function(attrs, options) {
-          console.log("attrs");
           if (attrs.type=="subregions") {
             return new MfiaClient.Models.Subregion(attrs, options);
           } 

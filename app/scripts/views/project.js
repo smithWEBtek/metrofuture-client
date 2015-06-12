@@ -16,7 +16,6 @@ MfiaClient.Views = MfiaClient.Views || {};
     className: '',
 
     scrubLink: function (url_string, rm) {
-        console.log(url_string);
         return url_string.replace(rm, "")
     },
 
@@ -26,7 +25,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     onShow: function () {
-        console.log(this.model);
+        
         this.$('.parallax').parallax();
         this.$('.tooltipped').tooltip();
     }
