@@ -11,7 +11,7 @@ Before you start, you'll need:
     - Bower (`npm install -g bower`)
     - Grunt (`npm install -g grunt-cli`)
 - Ruby (you're on your own)
-    - Compass (`gem install compass`)
+    - Compass (`gem install compass` and maybe `npm install grunt-contrib-compass`)
 
 To start the app:
 
