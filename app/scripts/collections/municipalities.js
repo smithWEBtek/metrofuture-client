@@ -8,7 +8,9 @@ MfiaClient.Collections = MfiaClient.Collections || {};
   MfiaClient.Collections.Municipalities = Backbone.Collection.extend({
 
       model: MfiaClient.Models.Municipality,
-      url: 'fixtures/municipalities.json',
+      url: function () {
+        return  MfiaClient.API + '/municipalities';
+      },
       parse: function(response) {
         return response.data;
       }

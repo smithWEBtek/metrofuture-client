@@ -32,19 +32,11 @@
 <div class="section container">
   <i class="mdi-maps-place small left"></i><h6>Municipalities</h6>
   <div class="">
-      <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
-        Boston
+    <% included.forEach(function(municipality){ %>
+      <a href="projects?municipalities=<%= municipality.attributes.muni_id %>" class="collection-item">
+        <%= municipality.attributes.name %>
       </a>,
-            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
-        Boston
-      </a>,
-            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
-        Boston
-      </a>,
-            <a href="http://regionalindicators.live.mapc.org/goals/" class="collection-item">
-        Boston
-      </a>
-      </a>
+    <% }) %>
   </div>
 </div>
 

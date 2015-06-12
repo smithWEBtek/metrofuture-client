@@ -7,7 +7,7 @@ MfiaClient.Models = MfiaClient.Models || {};
 
   MfiaClient.Models.Municipality = Backbone.Model.extend({
     url: function(muni_id) {
-      return 'fixtures/municipalities/' + this.muni_id + '.json';
+      return MfiaClient.API + '/municipalities/' + this.muni_id;
     },
 
     initialize: function() {

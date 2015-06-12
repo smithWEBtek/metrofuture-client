@@ -12,7 +12,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
       this.queryString = options.queryString || null;
     },
     url: function() {
-      var full_url = MfiaClient.API + '.json?fields[projects]=title,description,image';
+      var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,image';
       if(this.queryString !== null) {
         full_url = full_url + "&" + this.queryString;
       }
