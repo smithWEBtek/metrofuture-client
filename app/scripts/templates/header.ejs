@@ -18,7 +18,7 @@
     <ul id="nav-mobile" class="side-nav">
       <li>
         <form action="#">
-          <select class="chosen-select">
+          <select class="chosen-select" data-placeholder="LOL HI">
             <% _.each(data, function(option) { %>
               <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
             <% }); %>

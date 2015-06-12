@@ -2,17 +2,52 @@ $roboto-font-path: "font/roboto/";
 $icons-font-path: "font/material-design-icons/";
 
 @import "materialize/sass/materialize";
+@import "chosen";
+
+html,body { height: 100%; margin: 0px; padding: 0px; }
+// .full {
+//     min-height: 100%;
+//     background-color: #DDD;
+//     border-left: 2px solid #666;
+//     border-right: 2px solid #666;
+//     margin: 0 auto;
+// }
+
+.transparent {
+    background: none;
+    background-color: none;
+}
+
+.header-style {
+    font-family: Futura, Futura-Medium, 'Futura Medium', 'Century Gothic', CenturyGothic, 'Apple Gothic', AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
+    letter-spacing: 0.04em;
+}
+
+nav {
+    z-index: 100000;
+}
+
+nav .brand-logo {
+    font-size: 1.6rem;
+}
+
+img.hero {
+    max-height: 620px;
+    width: auto;
+    margin-top: -15px;
+    margin-bottom: -38px;
+}
+
+.btn.hero {
+    margin: 5px 0;
+}
+
 
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
-}
-
-.chosen-list-item {
-    min-width: 150px;
-    transition: none;
 }
 
 .previous-article {
@@ -33,12 +68,6 @@ $icons-font-path: "font/material-design-icons/";
     top:50%;
     position: fixed;
     // width: 100%;
-}
-
-.chosen-search {
-    input {
-        color: black;
-    }
 }
 
 .about-section-collapsed {
