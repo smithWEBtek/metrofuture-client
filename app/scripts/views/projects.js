@@ -24,10 +24,16 @@ MfiaClient.Views = MfiaClient.Views || {};
                         that.collection.getNextPage({remove:false, "success": function () {
                             MfiaClient.app.trigger("loaded");
                         }});
+                    } else {
+                        console.log("out of projects");
+                        that.$('#out-of-projects').show();
                     }
                }
             });
             
+        },
+        onDestroy: function () {
+            $(window).unbind("scroll");
         }
 
     });
