@@ -6,7 +6,10 @@ MfiaClient.Views = MfiaClient.Views || {};
   'use strict';
 
   MfiaClient.Views.Header = Backbone.View.extend({
+    initialize: function (option) {
+        var that = this;
 
+    },
     template: JST['app/scripts/templates/header.ejs'],
 
     tagName: 'div',

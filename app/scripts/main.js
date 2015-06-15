@@ -42,7 +42,7 @@ window.MfiaClient = {
           options.push(option);
         });
 
-        that.app.getRegion('navRegion').show(new that.Views.Header({model: options}));
+        that.app.getRegion('navRegion').show(new that.Views.Header({model: options, }));
       }});
     }});
 
@@ -55,8 +55,9 @@ window.MfiaClient = {
       that.app.trigger("routed");
     });
 
+
     // render about
-    that.app.getRegion('aboutRegion').show(new that.Views.About({}));
+    that.app.getRegion('aboutRegion').show(new that.Views.About());
 
     MfiaClient.app.on("loading", function() {
         $(".progress").show();

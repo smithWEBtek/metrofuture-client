@@ -15,12 +15,11 @@ MfiaClient.Models = MfiaClient.Models || {};
         this.on("sync", function() {
             MfiaClient.app.trigger("loaded");
         });
-
     },
 
     url: function() {
         //?fields[projects]=title,description,image
-        return MfiaClient.API + "/projects/" + this.park_id + '?include=municipalities';
+        return MfiaClient.API + "/projects/" + this.park_id + '?include=municipalities,subregions,goals';
     },
 
     defaults: {
