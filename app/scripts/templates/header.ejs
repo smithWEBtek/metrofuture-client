@@ -6,7 +6,7 @@
         <form action="#">
           <select class="chosen-select">
             <% _.each(data, function(option) { %>
-              <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
+              <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
             <% }); %>
           </select>
         </form>
@@ -17,7 +17,7 @@
         <form action="#">
           <select class="chosen-select" data-placeholder="LOL HI">
             <% _.each(data, function(option) { %>
-              <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
+              <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
             <% }); %>
           </select>
         </form>

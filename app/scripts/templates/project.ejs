@@ -5,7 +5,7 @@
 <div class="section container">
   <div class="row">
     <div class="col s12 m4 l4">
-      <h6><i class="mdi-av-loop small left"></i><%= attributes.status %></h6>
+      <h6><i class="small left <%= this.slugify(attributes.status) %>"></i><%= attributes.status %></h6>
     </div>
 
     <% if (attributes.website !== null) { %>
@@ -15,7 +15,7 @@
     <% } %>
   </div>
 
-  <h4 class="truncate"><%= attributes.title %></h4>
+  <h4><%= attributes.title %></h4>
   <p class="flow-text"><%= attributes.description %></p>
   <div class="row">
     <div class="col s12 m6 l6">
@@ -32,10 +32,12 @@
 <div class="section container">
   <i class="mdi-maps-place small left"></i><h6>Municipalities</h6>
   <div class="">
-    <% included.forEach(function(municipality){ %>
+    <% included.forEach(function(municipality, index) { %>
       <a href="projects?municipalities=<%= municipality.attributes.muni_id %>" class="collection-item">
-        <%= municipality.attributes.name %>
-      </a>,
+        <%= municipality.attributes.name %></a><% if (index < included.length - 1) { %>, <% } %>
+      
+
+      
     <% }) %>
   </div>
 </div>

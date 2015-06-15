@@ -25,7 +25,6 @@ MfiaClient.Views = MfiaClient.Views || {};
                             MfiaClient.app.trigger("loaded");
                         }});
                     } else {
-                        console.log("out of projects");
                         that.$('#out-of-projects').show();
                     }
                }

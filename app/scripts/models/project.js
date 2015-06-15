@@ -17,6 +17,7 @@ MfiaClient.Models = MfiaClient.Models || {};
         });
 
     },
+
     url: function() {
         //?fields[projects]=title,description,image
         return MfiaClient.API + "/projects/" + this.park_id + '?include=municipalities';
