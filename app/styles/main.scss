@@ -221,3 +221,15 @@ body {
   background-color: #2098d1;
   color: white;
 }
+
+
+#out-of-projects {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+@media screen and (min-width: 993px) {
+    #footer-links ul {
+        margin-top: 52px;
+    }
+}
