@@ -24,14 +24,21 @@ MfiaClient.Views = MfiaClient.Views || {};
         refresh: function () {
             if (this.loaded) {
                 console.log('more data being retrieved');
+                var that = this;
                 MfiaClient.app.trigger("loading");
                 this.collection.getNextPage({remove:false, "success": function () {
+                    if (that.collection.links.next == null) {
+                        that.$('#out-of-projects').show();
+                    }
                     MfiaClient.app.trigger("loaded");
                 }});
             }
         },
         onShow: function () {
             var that = this;
+            if (that.collection.links.next == null) {
+                that.$('#out-of-projects').show();
+            }
             $(window).scroll(function() {
                if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
                     if (that.collection.links.next !== null){
