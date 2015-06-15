@@ -52,6 +52,7 @@ window.MfiaClient = {
     MfiaClient.Routers.Project = new this.Routers.Project();
     this.app.execute("setRouter", MfiaClient.Routers.Project);
     MfiaClient.Routers.Project.on("route", function () {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       that.app.trigger("routed");
     });
 

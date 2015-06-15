@@ -1,36 +1,38 @@
-<nav class="indigo darken-4" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only"  style="font-family: Futura, Futura-Medium, 'Futura Medium';">METROFUTURE IN ACTION</a>
-  <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
-    <ul class="right hide-on-med-and-down">
-      <li class="chosen-list-item">
-        <form action="#">
-          <select class="chosen-select">
-            <% _.each(data, function(option) { %>
-              <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
-            <% }); %>
-          </select>
-        </form>
-      </li>
-      <li>
-        <a class="white-text modal-trigger" href="#about-modal">
-          <i class="mdi-action-info-outline"></i>
-        </a>
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="side-nav">
-      <li>
-        <form action="#">
-          <select class="chosen-select" data-placeholder="LOL HI">
-            <% _.each(data, function(option) { %>
-              <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
-            <% }); %>
-          </select>
-        </form>
-      </li>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-  </div>
-</nav>
+<div class="navbar-fixed">
+  <nav class="indigo darken-4" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only"  style="font-family: Futura, Futura-Medium, 'Futura Medium';">METROFUTURE IN ACTION</a>
+    <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
+      <ul class="right hide-on-med-and-down">
+        <li class="chosen-list-item">
+          <form action="#">
+            <select class="chosen-select">
+              <% _.each(data, function(option) { %>
+                <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
+              <% }); %>
+            </select>
+          </form>
+        </li>
+        <li>
+          <a class="white-text modal-trigger" href="#about-modal">
+            <i class="mdi-action-info-outline"></i>
+          </a>
+        </li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li>
+          <form action="#">
+            <select class="chosen-select" data-placeholder="LOL HI">
+              <% _.each(data, function(option) { %>
+                <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
+              <% }); %>
+            </select>
+          </form>
+        </li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+</div>
 
 <div id="about-modal" class="modal modal-fixed-footer">
   <div class="modal-content">
