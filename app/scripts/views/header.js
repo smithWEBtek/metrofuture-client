@@ -50,6 +50,7 @@ MfiaClient.Views = MfiaClient.Views || {};
         var options = {};
         options.data = this.model;
         this.$el.html(this.template(options));
+        this.$('.modal-trigger').leanModal();
         return this;
     },
     onShow: function() {
