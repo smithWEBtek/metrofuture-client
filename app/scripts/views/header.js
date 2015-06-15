@@ -60,6 +60,14 @@ MfiaClient.Views = MfiaClient.Views || {};
             width: "100%",
             no_results_text: "No results found for"
         });
+
+        MfiaClient.Routers.Project.on("routed", function() {
+            that.$(".chosen-select").chosen({
+                width: "100%",
+                no_results_text: "No results found for"
+            });
+        });
+
         this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
         this.$("a.chosen-single span").text("Viewing all projects");
     }
