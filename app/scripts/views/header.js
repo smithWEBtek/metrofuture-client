@@ -6,7 +6,10 @@ MfiaClient.Views = MfiaClient.Views || {};
   'use strict';
 
   MfiaClient.Views.Header = Backbone.View.extend({
+    initialize: function (option) {
+        var that = this;
 
+    },
     template: JST['app/scripts/templates/header.ejs'],
 
     tagName: 'div',
@@ -33,14 +36,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     initialize: function () {
         var that = this;
 
-        MfiaClient.app.on("loading", function() {
-            console.log("loading");
-            that.$(".progress").show();
-        });
-        MfiaClient.app.on("loaded", function() {
-            console.log("loaded");
-            that.$(".progress").hide();
-        });
+
     },
     doSearch: function() {
         var search = "#projects?" + this.$(".chosen-select").val();
@@ -54,6 +50,7 @@ MfiaClient.Views = MfiaClient.Views || {};
         var options = {};
         options.data = this.model;
         this.$el.html(this.template(options));
+        this.$('.modal-trigger').leanModal();
         return this;
     },
     onShow: function() {
@@ -63,8 +60,25 @@ MfiaClient.Views = MfiaClient.Views || {};
             width: "100%",
             no_results_text: "No results found for"
         });
+
+        MfiaClient.Routers.Project.on("routed", function() {
+            that.$(".chosen-select").chosen({
+                width: "100%",
+                no_results_text: "No results found for"
+            });
+        });
+
         this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
         this.$("a.chosen-single span").text("Viewing all projects");
+
+        console.log(MfiaClient.app.getRegion("mainRegion").currentView.collection.queryString);
+
+        // MfiaClient.app.on("projectsChange", function(queryString) {
+        console.log(window.url);
+        that.$('select').val("filter[municipalities]=F0F4CD07-A66C-E311-8EB6-96147297305B");
+        that.$('select').trigger("chosen:updated");
+        // });
+
     }
   });
 })();

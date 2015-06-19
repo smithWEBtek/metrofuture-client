@@ -10,7 +10,7 @@ window.MfiaClient = {
     'use strict';
 
     //API Endpoint
-    MfiaClient.API = "http://api.metrofuture.ngrok.com"
+    MfiaClient.API = "http://mfia.prep.mapc.org"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
@@ -42,7 +42,7 @@ window.MfiaClient = {
           options.push(option);
         });
 
-        that.app.getRegion('navRegion').show(new that.Views.Header({model: options}));
+        that.app.getRegion('navRegion').show(new that.Views.Header({model: options, }));
       }});
     }});
 
@@ -52,11 +52,20 @@ window.MfiaClient = {
     MfiaClient.Routers.Project = new this.Routers.Project();
     this.app.execute("setRouter", MfiaClient.Routers.Project);
     MfiaClient.Routers.Project.on("route", function () {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       that.app.trigger("routed");
     });
 
+
     // render about
-    that.app.getRegion('aboutRegion').show(new that.Views.About({}));
+    that.app.getRegion('aboutRegion').show(new that.Views.About());
+
+    MfiaClient.app.on("loading", function() {
+        $(".progress").show();
+    });
+    MfiaClient.app.on("loaded", function() {
+        $(".progress").hide();
+    });
 
     Backbone.history.start(); 
   }

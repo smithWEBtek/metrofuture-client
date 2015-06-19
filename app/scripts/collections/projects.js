@@ -10,6 +10,14 @@ MfiaClient.Collections = MfiaClient.Collections || {};
     // mode: "infinite",
     initialize: function(options) {
       this.queryString = options.queryString || null;
+
+      this.on("request", function() {
+          MfiaClient.app.trigger("loading");
+      });
+
+      this.on("sync", function() {
+          MfiaClient.app.trigger("loaded");
+      });
     },
     url: function() {
       var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,image';

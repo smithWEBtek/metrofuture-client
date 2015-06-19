@@ -32,7 +32,12 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.$('#about-section-collapsed').show();
         },
 
-        initialize: function () {
+        initialize: function (options) {
+            var that = this;
+            MfiaClient.Routers.Project.on("route:project", function () {
+                that.visibleOnce = true;
+            });
+
             this.listenTo(MfiaClient.app, "routed", function() {
                 var that = this;
                 if (!this.visibleOnce) {
@@ -41,7 +46,6 @@ MfiaClient.Views = MfiaClient.Views || {};
                     this.$('#about-section').slideUp("slow",function() {
                         that.$('#about-section-collapsed').show();
                     });
-                    
                 }
             });
         },

@@ -1,31 +1,110 @@
-<!-- <div class="progress">
-  <div class="indeterminate"></div>
-</div> -->
-<nav class="indigo darken-4" role="navigation">
-  <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only"  style="font-family: Futura, Futura-Medium, 'Futura Medium';">METROFUTURE IN ACTION</a>
-  <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
-    <ul class="right hide-on-med-and-down">
-      <li class="chosen-list-item">
-        <form action="#">
-          <select class="chosen-select">
-            <% _.each(data, function(option) { %>
-              <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
-            <% }); %>
-          </select>
-        </form>
-      </li>
+<div class="navbar-fixed">
+  <nav class="indigo darken-4" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo truncate hide-on-small-only"  style="font-family: Futura, Futura-Medium, 'Futura Medium';">METROFUTURE IN ACTION</a>
+    <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
+      <ul class="right hide-on-med-and-down">
+        <li class="chosen-list-item">
+          <form action="#">
+            <select class="chosen-select">
+              <% _.each(data, function(option) { %>
+                <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
+              <% }); %>
+            </select>
+          </form>
+        </li>
+        <li>
+          <a class="white-text modal-trigger" href="#about-modal">
+            <i class="mdi-action-info-outline"></i>
+          </a>
+        </li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li>
+          <form action="#">
+            <select class="chosen-select" data-placeholder="LOL HI">
+              <% _.each(data, function(option) { %>
+                <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
+              <% }); %>
+            </select>
+          </form>
+        </li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    </div>
+  </nav>
+</div>
+
+<div id="about-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h3 id="about">About</h3>
+    <h4 id="whymetrofutureinaction">Why &#8220;MetroFuture in Action&#8221;?</h4>
+    <p>
+      We think it&#8217;s important for you to understand how your tax dollars are being put to work, so we&#8217;ve decided to show you! This site showcases projects that the Metropolitan Area Planning Council is actively working on, or have recently completed.</p>
+    <p>
+      All of our work is guided by the MetroFuture Regional Plan, MAPC&#8217;s long-term plan for the 134 cities and towns around Boston, which you can <a href="TODO">download and read</a>. The projects you see here demonstrate how MAPC works to make the vision in MetroFuture into reality.</p>
+
+    <br/>
+    <br/>
+
+    <h3 id="needhelp">Need help?</h3>
+    <p>Here&#8217;s more information on how to use this site.</p>
+    
+    <h5 id="onthehomepage">On the home page</h5>
+    <p>
+      The home page showcases MAPC&#8217;s ongoing and completed projects in the MetroBoston region. Want to see more projects? Just keep scrolling down! </p>
+
+    <h5 id="goinghome">Going home</h5>
+    <p>
+      Click on &#8220;MetroFuture in Action&#8221; in the top right at any point to return to the home page. </p>
+
+    <h5 id="viewingaproject">Viewing a project</h5>
+    <p>
+      Click on a project card to see more details about the project. This page includes information like:</p>
+
+      <ul>
+        <li> &bull; title and description</li>
+        <li> &bull; project status &mdash; that is, whether the project is <strong>In Progress</strong>, <strong>Completed</strong>, or <strong>In Development</strong>.</li>
+        <li> &bull; project manager and lead department</li>
+        <li> &bull; location, listing the subregions and municipalities the project affects</li>
+        <li> &bull; project website (if there is one)</li>
+      </ul>
+
+    <h5 id="sharingaproject">Sharing a project</h5>
+
+    <p>Do you want to share a specific project with others? You can do this in a few ways.</p>
+
+    <ul>
+    <li>Copy the link from the URL bar, and send it however you want.</li>
+    <li>Click on the &#8220;Twitter&#8221; button, and you&#8217;ll get a pre-populated tweet you can edit and send.</li>
+    <li>Click on the &#8220;Facebook&#8221; button to share it with a friend or post it on your Timeline.</li>
     </ul>
-    <ul id="nav-mobile" class="side-nav">
-      <li>
-        <form action="#">
-          <select class="chosen-select" data-placeholder="LOL HI">
-            <% _.each(data, function(option) { %>
-              <option value="<%= option.type %>=<%= option.id %>"><%= option.attributes.name %></option>
-            <% }); %>
-          </select>
-        </form>
-      </li>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+    <h5 id="filtering">Filtering</h5>
+
+    <p>Use the filter menu in the top right of the page to find projects by municipality (a.k.a. city or town), or by <a href="http://www.mapc.org/subregions">MAPC Subregion</a>, which is how MAPC organizes municipalities into larger groups. </p>
+
+    <p>When you click on the filter, you can either scroll through it, or start typing to limit the options the filter presents you with. For example, you could scroll to &#8220;Medford&#8221;, or you could start typing &#8220;Med&#8221; and you would see it right away. </p>
+
+    <h5 id="contactinformation">Contact information</h5>
+
+    <p>Contact information for MAPC is in the footer. The &#8220;Contact&#8221; link will connect you with staff who specialize in implementing the MetroFuture plan. The &#8220;MAPC Website&#8221; link will take you to MAPC&#8217;s homepage.</p>
+    <br/>
+    <br/>
+  
+    <h3 id="contact">Contact</h3>
+    <h5 id="metrofuture">MetroFuture</h5>
+    <p>Would you like to get in touch with someone about MetroFuture? </p>
+
+    <p>Send an email to our <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x52;&#x65;&#x67;&#x70;&#x6c;&#97;&#x6e;&#115;&#x74;&#97;&#102;&#102;&#64;&#x6d;&#x61;&#x70;&#99;&#46;&#x6f;&#114;&#x67;">&#114;&#101;&#x67;&#105;&#x6f;&#110;&#97;&#108; &#112;&#x6c;&#97;&#110;&#x6e;&#105;&#x6e;&#x67; &#115;&#x74;&#x61;&#102;&#102;</a>. </p>
+
+    <h5 id="proposingaproject">Proposing a project</h5>
+    <p>Do you want to work with MAPC? </p>
+    <p>See our <a href="http://www.mapc.org/opportunities">Opportunities Page</a> to learn more, or <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#105;&#x6e;&#102;&#111;&#64;&#109;&#97;&#x70;&#99;&#46;&#111;&#x72;&#103;">&#x65;&#x6d;&#x61;&#x69;&#108; &#77;&#65;&#x50;&#x43;</a>. </p>
+    <br/>
+    <br/>
+    <br/>
   </div>
-</nav>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>

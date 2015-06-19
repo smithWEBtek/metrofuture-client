@@ -16,7 +16,6 @@ MfiaClient.Views = MfiaClient.Views || {};
     className: '',
 
     scrubLink: function (url_string, rm) {
-        console.log(url_string);
         return url_string.replace(rm, "")
     },
 
@@ -26,9 +25,18 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     onShow: function () {
-        console.log(this.model);
+        
         this.$('.parallax').parallax();
         this.$('.tooltipped').tooltip();
+    },
+    slugify: function(text) {
+        return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+
     }
 
   });

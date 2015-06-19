@@ -14,25 +14,17 @@ MfiaClient.Routers = MfiaClient.Routers || {};
       },
       projects: function(queryString) {
         var projects = new MfiaClient.Collections.Projects({'queryString': queryString});
-        // MfiaClient.app.trigger("loading");
+        MfiaClient.app.trigger("projectsChange", queryString);
         projects.fetch({'success': function(response) {
-          setTimeout(function() {
-            // MfiaClient.app.trigger("loaded");
-            var collectionView = new MfiaClient.Views.Projects({collection: projects});
-            MfiaClient.app.getRegion('mainRegion').show(collectionView);
-
-          }, 300);
+          var collectionView = new MfiaClient.Views.Projects({collection: projects});
+          MfiaClient.app.getRegion('mainRegion').show(collectionView);
         }});
       },
       project: function(id) {
-        // MfiaClient.app.trigger("loading");
         var project = new MfiaClient.Models.Project({'id': id});
         project.fetch({'success': function(response) {
-          setTimeout(function() {
-            // MfiaClient.app.trigger("loaded");
-            var projectView = new MfiaClient.Views.Project({model: project});
-            MfiaClient.app.getRegion('mainRegion').show(projectView);
-          }, 300);
+          var projectView = new MfiaClient.Views.Project({model: project});
+          MfiaClient.app.getRegion('mainRegion').show(projectView);
         }});
       },
       about: function() {

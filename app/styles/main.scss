@@ -1,17 +1,31 @@
-// $roboto-font-path: "font/roboto/";
-// $icons-font-path: "font/material-design-icons/";
+$roboto-font-path: "fonts/";
+$icons-font-path: "fonts/";
 
 @import "materialize/sass/materialize";
 @import "chosen";
 
 html,body { height: 100%; margin: 0px; padding: 0px; }
-// .full {
-//     min-height: 100%;
-//     background-color: #DDD;
-//     border-left: 2px solid #666;
-//     border-right: 2px solid #666;
-//     margin: 0 auto;
-// }
+
+.completed {
+    @extend .mdi-action-done;
+    @extend [class^="mdi-"];
+}
+
+.in-progress {
+    @extend .mdi-action-autorenew;
+    @extend [class^="mdi-"];
+}
+
+.proposed {
+    @extend .mdi-content-add-circle-outline;
+    @extend [class^="mdi-"];
+}
+
+.in-development {
+    @extend .mdi-content-create;
+    @extend [class^="mdi-"];
+}
+
 
 .transparent {
     background: none;
@@ -206,4 +220,16 @@ body {
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
   background-color: #2098d1;
   color: white;
+}
+
+
+#out-of-projects {
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+@media screen and (min-width: 993px) {
+    #footer-links ul {
+        margin-top: 52px;
+    }
 }

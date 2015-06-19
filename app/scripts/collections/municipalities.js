@@ -9,7 +9,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
 
       model: MfiaClient.Models.Municipality,
       url: function () {
-        return  MfiaClient.API + '/municipalities';
+        return  MfiaClient.API + '/municipalities?filter[mapc]=true';
       },
       parse: function(response) {
         return response.data;
