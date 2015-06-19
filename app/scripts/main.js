@@ -10,7 +10,7 @@ window.MfiaClient = {
     'use strict';
 
     //API Endpoint
-    MfiaClient.API = "http://api.metrofuture.ngrok.com"
+    MfiaClient.API = "http://mfia.prep.mapc.org"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
