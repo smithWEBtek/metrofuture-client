@@ -26,18 +26,18 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
-        aws: grunt.file.readJSON("aws-credentials.json"),
-        s3: {
-          options: {
-            accessKeyId: "<%= aws.accessKeyId %>",
-            secretAccessKey: "<%= aws.secretAccessKey %>",
-            bucket: "projects.metrofuture.org"
-          },
-          build: {
-            cwd: "dist/",
-            src: "**"
-          }
-        },
+        // aws: grunt.file.readJSON("aws-credentials.json"),
+        // s3: {
+        //   options: {
+        //     accessKeyId: "<%= aws.accessKeyId %>",
+        //     secretAccessKey: "<%= aws.secretAccessKey %>",
+        //     bucket: "projects.metrofuture.org"
+        //   },
+        //   build: {
+        //     cwd: "dist/",
+        //     src: "**"
+        //   }
+        // },
         yeoman: yeomanConfig,
         watch: {
             options: {
