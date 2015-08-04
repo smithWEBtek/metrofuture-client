@@ -71,8 +71,6 @@ MfiaClient.Views = MfiaClient.Views || {};
         this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
         this.$("a.chosen-single span").text("Viewing all projects");
 
-        console.log(MfiaClient.app.getRegion("mainRegion").currentView.collection.queryString);
-
         // MfiaClient.app.on("projectsChange", function(queryString) {
         console.log(window.url);
         that.$('select').val("filter[municipalities]=F0F4CD07-A66C-E311-8EB6-96147297305B");

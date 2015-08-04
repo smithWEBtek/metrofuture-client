@@ -20,7 +20,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
       });
     },
     url: function() {
-      var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,image';
+      var full_url = MfiaClient.API + '/projects.json';
       if(this.queryString !== null) {
         full_url = full_url + "&" + this.queryString;
       }
@@ -42,7 +42,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
       pageSize: "page[size]"
     },
     state: {
-      pageSize: 10
+      pageSize: 9
     }
   });
 

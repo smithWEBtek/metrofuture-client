@@ -25,7 +25,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     onShow: function () {
-        
+        Materialize.fadeInImage('.materialize-fade-in');
         this.$('.parallax').parallax();
         this.$('.tooltipped').tooltip();
     },

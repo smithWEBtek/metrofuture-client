@@ -6,6 +6,11 @@ $icons-font-path: "fonts/";
 
 html,body { height: 100%; margin: 0px; padding: 0px; }
 
+#map-body {
+    width: 250px;
+    height:250px;
+}
+
 .completed {
     @extend .mdi-action-done;
     @extend [class^="mdi-"];
@@ -25,7 +30,6 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     @extend .mdi-content-create;
     @extend [class^="mdi-"];
 }
-
 
 .transparent {
     background: none;

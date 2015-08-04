@@ -10,7 +10,7 @@ window.MfiaClient = {
     'use strict';
 
     //API Endpoint
-    MfiaClient.API = "http://mfia.prep.mapc.org"
+    MfiaClient.API = "fixtures"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
@@ -20,7 +20,8 @@ window.MfiaClient = {
         navRegion: '#header',
         mainRegion: '#main',
         footerRegion: '#footer',
-        aboutRegion: '#about'
+        aboutRegion: '#about',
+        mapRegion: '#map'
     });
 
     //this logic needs to be moved somewhere else 
@@ -59,6 +60,7 @@ window.MfiaClient = {
 
     // render about
     that.app.getRegion('aboutRegion').show(new that.Views.About());
+    that.app.getRegion('mapRegion').show(new that.Views.Map());
 
     MfiaClient.app.on("loading", function() {
         $(".progress").show();

@@ -10,7 +10,8 @@
     "marionette": "~2.4.1",
     "materialize": "~0.96.1",
     "chosen": "~1.4.2",
-    "backbone.paginator": "~2.0.2"
+    "backbone.paginator": "~2.0.2",
+    "leaflet": "~0.7.3"
   },
   "devDependencies": {
     "backbone.paginator": "~2.0.2"

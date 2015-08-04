@@ -21,6 +21,7 @@
         </div>
       <div id="header"></div>
       <div id="about"></div>
+      <div id="map"></div>
       <div id="main"></div>
       <footer class="page-footer orange" id="footer"></footer>
 
@@ -36,7 +37,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-5547782-24');ga('send','pageview');
         </script>
 
         <!-- build:js scripts/vendor.js -->
@@ -45,6 +46,7 @@
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
         <script src="bower_components/backbone.paginator/lib/backbone.paginator.min.js"></script>
+        <script src="bower_components/leaflet/dist/leaflet.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
@@ -84,6 +86,9 @@
         <script src="scripts/models/menuOption.js"></script>
         <script src="scripts/views/footer.js"></script>
         <script src="scripts/views/FormDropdown.js"></script>
+        <script src="//use.typekit.net/ujn0zlf.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <script src="scripts/views/map.js"></script>
         <!-- endbuild -->
 </body>
 </html>

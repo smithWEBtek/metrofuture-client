@@ -6,7 +6,11 @@
       </div>
     <% } %>
     <div class="card-content">
-      <span class="activator card-title grey-text text-darken-4 truncate"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span>
+      <% if (attributes.image) { %> 
+        <span class="activator card-title grey-text text-darken-4 truncate"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span>
+      <% } else { %>
+        <a href="/#/projects/<%= id %>"><span class="card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span></a>
+      <% } %>
       <p class="truncate"><%= attributes.description %></p>
     </div>
     <div class="card-reveal">
