@@ -33,6 +33,9 @@ window.MfiaClient = {
 
     //fetch data for dropdown, render HEADER
     municipalities.fetch({'success': function(municipalities_response) {
+
+      that.app.getRegion('mapRegion').show(new that.Views.Map({municipalities: municipalities_response}));
+      
       _.map(municipalities.toJSON(), function(option) {
         options.push(option);
       });
@@ -60,7 +63,7 @@ window.MfiaClient = {
 
     // render about
     that.app.getRegion('aboutRegion').show(new that.Views.About());
-    that.app.getRegion('mapRegion').show(new that.Views.Map());
+
 
     MfiaClient.app.on("loading", function() {
         $(".progress").show();

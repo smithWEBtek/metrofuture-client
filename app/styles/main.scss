@@ -1,5 +1,7 @@
 $roboto-font-path: "fonts/";
 $icons-font-path: "fonts/";
+$tabs-text-color: white;
+$tabs-underline-color: white;
 
 @import "materialize/sass/materialize";
 @import "chosen";
@@ -7,8 +9,15 @@ $icons-font-path: "fonts/";
 html,body { height: 100%; margin: 0px; padding: 0px; }
 
 #map-body {
-    width: 250px;
-    height:250px;
+    width: 100%;
+    min-height:600px;
+    // z-index: -1000;
+}
+
+.floating-layer-toggle {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
 }
 
 .completed {
@@ -39,6 +48,10 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 .header-style {
     font-family: Futura, Futura-Medium, 'Futura Medium', 'Century Gothic', CenturyGothic, 'Apple Gothic', AppleGothic, 'URW Gothic L', 'Avant Garde', sans-serif;
     letter-spacing: 0.04em;
+}
+
+.navbar-fixed {
+    z-index: 1001;
 }
 
 nav {
