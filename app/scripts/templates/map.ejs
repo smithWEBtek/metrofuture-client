@@ -1,11 +1,18 @@
 <div class="floating-layer-toggle">
   <div class="section container">
     <div class="row">
-      <div class="col l4 m6 s12">
-        <ul class="tabs indigo darken-4">
-          <li class="tab col s3 darken-4"><a class="active" href="#test1">Municipalities</a></li>
-          <li class="tab col s3 darken-4"><a href="#test2">Subregions</a></li>
+      <div class="col l4 m6 s12 blue lighten-4 tab-padding-fix z-depth-3">
+        <ul class="tabs">
+          <li class="tab col s3" id="municipalities"><a class="active" href="#test1">Municipalities</a></li>
+          <li class="tab col s3" id="subregions"><a href="#test2">Subregions</a></li>
         </ul>
+        <div class="col s12 map-data-box">
+          <div id="explanation">
+            Use the toggle above to switch between subregions or municipalities. Hover or tap a municipality for data and projects related to that geography.
+          </div>
+          <div id="feature-data">
+          </div>
+        </div>
       </div>
     </div>
     

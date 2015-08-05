@@ -13,13 +13,51 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         className: '',
 
-        events: {},
-
-        // id: 'map-body',
+        events: {
+            "click #municipalities": function() {
+                var that = this;
+                _.each(this.layers, function(element) {
+                    that.map.removeLayer(element);
+                });
+                that.map.addLayer(that.layers.municipalities);
+                console.log("municipalities");
+            },
+            "click #subregions": function () {
+                var that = this;
+                
+                _.each(this.layers, function(element) {
+                    that.map.removeLayer(element);
+                    
+                });
+                that.map.addLayer(that.layers.subregions);
+                console.log("subregions");
+            }
+        },
 
         initialize: function (options) {
-            this.collection = options.municipalities;
-            console.log(this.collection);
+            var that = this;
+            this.municipalities = options.municipalities;
+            this.subregions = options.subregions;
+            this.layers = {};
+            this.on("showData", function(context) {
+                that.$("#explanation").hide();
+                that.$("#feature-data").show();
+
+                // Insert a headline into that popup
+                var popup = $("<div></div>", {
+                    text: "Municipality: " + context.properties.simple_name + " Projects: " + context.properties.project_count
+                });
+
+                //empty data box
+                that.$("#feature-data").empty();
+                popup.appendTo("#feature-data");
+
+            });
+            this.on("showExplanation", function(context) {
+                that.$("#feature-data").empty();
+                that.$("#explanation").show();
+                that.$("feature-data").hide();
+            });
         },
 
         // render: function () {
@@ -45,35 +83,58 @@ MfiaClient.Views = MfiaClient.Views || {};
 
             var that = this;
 
-            //fix gray map bug
+            //fix gray map bugw
             this.map.invalidateSize();
-
-            function getColor(d) {
-                return d > 30 ? '#800026' :
-                       d > 25  ? '#BD0026' :
-                       d > 20  ? '#E31A1C' :
-                       d > 15  ? '#FC4E2A' :
-                       d > 10   ? '#FD8D3C' :
-                       d > 5   ? '#FEB24C' :
-                       d > 1   ? '#FED976' :
-                                  '#FFEDA0';
-            }
 
             function style(feature) {
                 return {
-                    fillColor: getColor(feature.properties.project_count),
+                    fillColor: "#FF9800",
                     weight: 2,
                     opacity: 1,
                     color: 'white',
                     dashArray: '3',
-                    fillOpacity: 0.7
+                    fillOpacity: 0.7,
+                    className: "layer-feature"
                 };
             }
-            var municipalities = L.geoJson(null,{style: style}).addTo(this.map);
-            _.forEach(this.collection.models, function(element) {
-                municipalities.addData(element.attributes.attributes.geojson);
+
+            var highlightStyle = {
+                color: '#2262CC', 
+                weight: 3,
+                opacity: 0.6,
+                fillOpacity: 0.65,
+                fillColor: '#2262CC'
+            };
+
+            function onEachFeature(feature, layer) {
+                layer.setStyle(style);
+                layer.on("mouseover", function (e) {
+                    that.trigger("showData", feature);
+                    layer.setStyle(highlightStyle); 
+                });
+
+                layer.on("mouseout", function(e) {
+                    that.trigger("showExplanation", feature);
+                    layer.setStyle(style);
+                });
+            }
+
+            this.layers.municipalities = L.geoJson(null, {onEachFeature: onEachFeature }).addTo(this.map);
+            _.forEach(this.municipalities.models, function(element) {
+                that.layers.municipalities.addData(element.attributes.attributes.geojson);
             });
 
+            //does not add to map initially, so no #addTo method is called
+            this.layers.subregions = L.geoJson(null,{style: style})
+            _.forEach(this.subregions.models, function(element) {
+                console.log(element.attributes.attributes.geojson);
+
+                //is it valid geojson? can't leaflet just check this...
+                if (element.attributes.attributes.geojson.type !== undefined) {
+                    that.layers.subregions.addData(element.attributes.attributes.geojson);
+                }
+                
+            });
 
             // var that = this;
             // // L.geoJson(response).addTo(that.map);

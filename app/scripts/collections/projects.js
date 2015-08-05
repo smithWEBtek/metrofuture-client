@@ -20,7 +20,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
       });
     },
     url: function() {
-      var full_url = MfiaClient.API + '/projects.json';
+      var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,image';
       if(this.queryString !== null) {
         full_url = full_url + "&" + this.queryString;
       }
