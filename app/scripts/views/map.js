@@ -42,16 +42,8 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.on("showData", function(context) {
                 that.$("#explanation").hide();
                 that.$("#feature-data").show();
-
-                // Insert a headline into that popup
-                var popup = $("<div></div>", {
-                    text: "Municipality: " + context.properties.simple_name + " Projects: " + context.properties.project_count
-                });
-
-                //empty data box
-                that.$("#feature-data").empty();
-                popup.appendTo("#feature-data");
-
+                //just use a template, pass context
+                that.$("#feature-data").html(JST['app/scripts/templates/map_feature_data_table.ejs']({context: context}));
             });
             this.on("showExplanation", function(context) {
                 that.$("#feature-data").empty();
@@ -86,24 +78,22 @@ MfiaClient.Views = MfiaClient.Views || {};
             //fix gray map bugw
             this.map.invalidateSize();
 
-            function style(feature) {
-                return {
+            var style = {
                     fillColor: "#FF9800",
                     weight: 2,
                     opacity: 1,
                     color: 'white',
                     dashArray: '3',
-                    fillOpacity: 0.7,
+                    fillOpacity: 0.5,
                     className: "layer-feature"
-                };
-            }
+            };
 
             var highlightStyle = {
-                color: '#2262CC', 
+                // color: '#000000', 
                 weight: 3,
                 opacity: 0.6,
-                fillOpacity: 0.65,
-                fillColor: '#2262CC'
+                fillOpacity: 1
+                // fillColor: '#2262CC'
             };
 
             function onEachFeature(feature, layer) {
@@ -116,19 +106,27 @@ MfiaClient.Views = MfiaClient.Views || {};
                 layer.on("mouseout", function(e) {
                     that.trigger("showExplanation", feature);
                     layer.setStyle(style);
+                    console.log("mouseout fired");
+                });
+
+                layer.on("click", function(e) {
+                    console.log(e);
+                    var muni_uri = "#projects?filter[" + feature.properties.type + "]=" + feature.properties.id;
+                    Backbone.history.navigate(muni_uri, {'trigger': true});
                 });
             }
 
             this.layers.municipalities = L.geoJson(null, {onEachFeature: onEachFeature }).addTo(this.map);
             _.forEach(this.municipalities.models, function(element) {
+                element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
                 that.layers.municipalities.addData(element.attributes.attributes.geojson);
             });
 
             //does not add to map initially, so no #addTo method is called
-            this.layers.subregions = L.geoJson(null,{style: style})
+            this.layers.subregions = L.geoJson(null,{onEachFeature:onEachFeature})
             _.forEach(this.subregions.models, function(element) {
-                console.log(element.attributes.attributes.geojson);
-
+                console.log(element);
+                element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
                 //is it valid geojson? can't leaflet just check this...
                 if (element.attributes.attributes.geojson.type !== undefined) {
                     that.layers.subregions.addData(element.attributes.attributes.geojson);
