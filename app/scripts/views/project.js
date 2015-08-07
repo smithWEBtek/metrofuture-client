@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-  'use strict';
+  
 
   MfiaClient.Views.Project = Backbone.View.extend({
 
@@ -14,6 +14,8 @@ MfiaClient.Views = MfiaClient.Views || {};
     id: '',
 
     className: '',
+
+    name: "project",
 
     scrubLink: function (url_string, rm) {
         return url_string.replace(rm, "")

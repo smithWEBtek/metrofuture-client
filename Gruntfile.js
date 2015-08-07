@@ -31,7 +31,7 @@ module.exports = function (grunt) {
           options: {
             accessKeyId: "<%= aws.accessKeyId %>",
             secretAccessKey: "<%= aws.secretAccessKey %>",
-            bucket: "projects.metrofuture.org"
+            bucket: "staging.projects.metrofuture.org"
           },
           build: {
             cwd: "dist/",

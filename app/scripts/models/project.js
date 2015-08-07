@@ -3,7 +3,6 @@
 MfiaClient.Models = MfiaClient.Models || {};
 
 (function () {
-  'use strict';
 
   MfiaClient.Models.Project = Backbone.Model.extend({
     initialize: function(params) {

@@ -3,7 +3,6 @@
 MfiaClient.Models = MfiaClient.Models || {};
 
 (function () {
-  'use strict';
 
   MfiaClient.Models.Municipality = Backbone.Model.extend({
     url: function(muni_id) {

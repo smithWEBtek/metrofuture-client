@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Views.ProjectCard = Backbone.View.extend({
 

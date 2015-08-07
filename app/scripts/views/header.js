@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-  'use strict';
+  
 
   MfiaClient.Views.Header = Backbone.View.extend({
     initialize: function (option) {
@@ -20,7 +20,10 @@ MfiaClient.Views = MfiaClient.Views || {};
         'click #nav-about': 'goToAbout',
         'click #nav-projects': 'goToProjects',
         'click #logo-container': 'goToHome',
-        'change .chosen-select': 'doSearch'
+        'change .chosen-select': 'doSearch',
+        'click #toggleAbout': function () {
+            MfiaClient.app.trigger("toggleAbout");
+        }
     },
     aboutSectionVisible: true,
     aboutSectionOpenOnce: false,
@@ -32,11 +35,6 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
     goToHome: function(evt) {
         Backbone.history.navigate('', {'trigger': true })
-    },
-    initialize: function () {
-        var that = this;
-
-
     },
     doSearch: function() {
         var search = "#projects?" + this.$(".chosen-select").val();
@@ -61,7 +59,7 @@ MfiaClient.Views = MfiaClient.Views || {};
             no_results_text: "No results found for"
         });
 
-        MfiaClient.Routers.Project.on("routed", function() {
+        MfiaClient.Routers.Project.on("routed", function(e) {
             that.$(".chosen-select").chosen({
                 width: "100%",
                 no_results_text: "No results found for"
@@ -71,12 +69,10 @@ MfiaClient.Views = MfiaClient.Views || {};
         this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
         this.$("a.chosen-single span").text("Viewing all projects");
 
-        // MfiaClient.app.on("projectsChange", function(queryString) {
-        console.log(window.url);
-        that.$('select').val("filter[municipalities]=F0F4CD07-A66C-E311-8EB6-96147297305B");
-        that.$('select').trigger("chosen:updated");
-        // });
-
+        MfiaClient.app.on("projectsChange", function(context) {
+            that.$('select').val(context);
+            that.$('select').trigger("chosen:updated");
+        });
     }
   });
 })();

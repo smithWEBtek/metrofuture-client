@@ -3,7 +3,6 @@
 MfiaClient.Collections = MfiaClient.Collections || {};
 
 (function () {
-    'use strict';
 
     MfiaClient.Collections.Options = Backbone.Collection.extend({
         model: function(attrs, options) {

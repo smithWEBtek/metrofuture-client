@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Views.Map = Marionette.ItemView.extend({
 
@@ -31,6 +31,28 @@ MfiaClient.Views = MfiaClient.Views || {};
                 });
                 that.map.addLayer(that.layers.subregions);
                 console.log("subregions");
+            },
+            "click #toggleMap": function () {
+                this.toggleMap();
+            }
+        },
+
+        visibleNow: true,
+        visibleOnce: false,
+
+        hideMap: function () {
+            this.$("#map-area").slideUp();
+            this.visibleNow = false;
+        },
+        showMap: function () {
+            this.$("#map-area").slideDown();
+            this.visibleNow = true;
+        },
+        toggleMap: function() {
+            if (this.visibleNow) {
+                this.hideMap();
+            } else {
+                this.showMap();
             }
         },
 
@@ -39,26 +61,39 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.municipalities = options.municipalities;
             this.subregions = options.subregions;
             this.layers = {};
+
             this.on("showData", function(context) {
                 that.$("#explanation").hide();
                 that.$("#feature-data").show();
                 //just use a template, pass context
                 that.$("#feature-data").html(JST['app/scripts/templates/map_feature_data_table.ejs']({context: context}));
             });
+
             this.on("showExplanation", function(context) {
                 that.$("#feature-data").empty();
                 that.$("#explanation").show();
                 that.$("feature-data").hide();
             });
+
+            MfiaClient.Routers.Project.on("route:project", function () {
+                that.visibleOnce = true;
+            });
+
+            this.listenTo(MfiaClient.app, "routed", function() {
+                var that = this;
+                if (!this.visibleOnce) {
+                    this.visibleOnce = true;
+                } else {
+                    that.hideMap();
+                }
+            });
         },
 
-        // render: function () {
-        //     this.$el.html(this.template());
-        // },
+        visibleOnce: false,
 
         render: function () {
             this.$el.html(this.template());
-            this.map = L.map(this.$("#map-body")[0], {'zoomControl': false }).setView([42.357778, -71.061667], 9);
+            this.map = L.map(this.$("#map-body")[0], {'zoomControl': false }).setView([42.357778, -71.3], 10);
             
             L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
@@ -70,6 +105,14 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         },
         onShow: function() {
+
+
+            // if(MfiaClient.app.getRegion('mainRegion').currentView.model==undefined) {
+            //     console.log("true");
+            // } else {
+            //     console.log("false");
+            //     this.hideMap();
+            // }
             //materialize init tabs ui
             this.$('ul.tabs').tabs();
 
@@ -106,11 +149,9 @@ MfiaClient.Views = MfiaClient.Views || {};
                 layer.on("mouseout", function(e) {
                     that.trigger("showExplanation", feature);
                     layer.setStyle(style);
-                    console.log("mouseout fired");
                 });
 
                 layer.on("click", function(e) {
-                    console.log(e);
                     var muni_uri = "#projects?filter[" + feature.properties.type + "]=" + feature.properties.id;
                     Backbone.history.navigate(muni_uri, {'trigger': true});
                 });
@@ -125,7 +166,6 @@ MfiaClient.Views = MfiaClient.Views || {};
             //does not add to map initially, so no #addTo method is called
             this.layers.subregions = L.geoJson(null,{onEachFeature:onEachFeature})
             _.forEach(this.subregions.models, function(element) {
-                console.log(element);
                 element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
                 //is it valid geojson? can't leaflet just check this...
                 if (element.attributes.attributes.geojson.type !== undefined) {

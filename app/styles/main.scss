@@ -5,18 +5,35 @@ $tabs-underline-color: #FF9800;
 $tabs-bg-color: #1A237E;
 
 @import "materialize/sass/materialize";
+@import "leaflet.css";
+@import "mapbox.css";
 @import "chosen";
 
 html,body { height: 100%; margin: 0px; padding: 0px; }
 
 #map-body {
     width: 100%;
-    min-height:600px;
+    min-height:540px;
 }
 
+#map {
+    position:relative;
+}
+
+#toggleAbout {
+    cursor: pointer;
+}
+
+#toggleMap {
+    cursor: pointer;
+}
+
+
+
 .floating-layer-toggle {
+    top: 20px;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     width: 100%;
     pointer-events: none;
 
@@ -24,6 +41,23 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
         pointer-events: auto;
         padding: 0;
     }
+
+    .card-panel {
+        margin: 0;
+    }
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+.floating-map-toggle {
+    // position: absolute;
+    bottom:0;
+    width:100%;
+    z-index: 999;
+    // height:100%;
+    // margin-bottom: 0;
 }
 
 .map-data-box {
@@ -226,7 +260,21 @@ body {
         border-bottom: 0;
     }
 }
+@media screen and (max-width: 350px) {
+    #projects-grid {
+        padding: 0;
+        width: 100%;
+        .col {
+            padding: 0;
+        }
+    }
+}
 
+@media screen and (max-width: 568px) {
+    #map {
+        display: none;
+    }
+}
 /* Fade */
 .hvr-fade {
   // display: inline-block;
@@ -244,7 +292,7 @@ body {
   transition-property: color, background-color;
 }
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
-  background-color: #2098d1;
+  // background-color: #2098d1;
   color: white;
 }
 

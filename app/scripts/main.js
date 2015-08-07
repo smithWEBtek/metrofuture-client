@@ -7,7 +7,6 @@ window.MfiaClient = {
   Routers: {},
   Regions: {},
   init: function () {
-    'use strict';
 
     //API Endpoint
     MfiaClient.API = "http://mfia.dev.mapc.org"
@@ -78,7 +77,6 @@ window.MfiaClient = {
 };
 
 $(document).ready(function () {
-  'use strict';
   MfiaClient.init();
 });
 
