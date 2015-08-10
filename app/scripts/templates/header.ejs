@@ -18,15 +18,20 @@
           </a>
         </li>
       </ul>
-      <ul id="nav-mobile" class="side-nav">
+      <ul id="nav-mobile" class="side-nav blue lighten-4">
         <li>
           <form action="#">
-            <select class="chosen-select" data-placeholder="Select a geography" id="mobile-menu">
+            <select class="chosen-select black-text" data-placeholder="Select a geography" id="mobile-menu">
               <% _.each(data, function(option) { %>
                 <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>
             </select>
           </form>
+        </li>
+        <li>
+          <a id="toggleAbout">
+            <span class="black-text"><i class="mdi-action-info-outline left"></i> Toggle About</span>
+          </a>
         </li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
