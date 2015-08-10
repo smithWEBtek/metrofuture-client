@@ -9,7 +9,7 @@ window.MfiaClient = {
   init: function () {
 
     //API Endpoint
-    MfiaClient.API = "http://mfia.prep.mapc.org"
+    MfiaClient.API = "http://mfia.live.mapc.org"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
