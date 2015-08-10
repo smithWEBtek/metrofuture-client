@@ -105,14 +105,15 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         },
         onShow: function() {
+            if(MfiaClient.app.getRegion('mainRegion').currentView) {
+                if(MfiaClient.app.getRegion('mainRegion').currentView.model==undefined) {
+                    console.log("true");
+                } else {
+                    console.log("false");
+                    this.hideMap();
+                }
+            }
 
-
-            // if(MfiaClient.app.getRegion('mainRegion').currentView.model==undefined) {
-            //     console.log("true");
-            // } else {
-            //     console.log("false");
-            //     this.hideMap();
-            // }
             //materialize init tabs ui
             this.$('ul.tabs').tabs();
 

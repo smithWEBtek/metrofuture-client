@@ -9,7 +9,7 @@ window.MfiaClient = {
   init: function () {
 
     //API Endpoint
-    MfiaClient.API = "http://mfia.prep.mapc.org"
+    MfiaClient.API = "http://mfia.dev.mapc.org"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
@@ -66,10 +66,10 @@ window.MfiaClient = {
 
 
     MfiaClient.app.on("loading", function() {
-        $(".progress").show();
+        $(".loading").show();
     });
     MfiaClient.app.on("loaded", function() {
-        $(".progress").hide();
+        $(".loading").hide();
     });
 
     Backbone.history.start(); 

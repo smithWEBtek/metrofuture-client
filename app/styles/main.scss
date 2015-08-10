@@ -181,7 +181,8 @@ img.hero {
     cursor: pointer;
 }
 
-.progress {
+
+.top-progress {
     margin:0;
     position:fixed;
     top:0px;
@@ -302,6 +303,10 @@ body {
 @media screen and (max-width: 568px) {
     #map {
         display: none;
+    }
+
+    .parallax-container {
+        height:200px;
     }
 }
 /* Fade */

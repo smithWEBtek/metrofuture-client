@@ -66,6 +66,7 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         render: function () {
             this.$el.html(this.template());
+            this.$('.modal-trigger').leanModal();
             return this;
         }
 
