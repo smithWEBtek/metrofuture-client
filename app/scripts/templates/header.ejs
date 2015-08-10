@@ -5,7 +5,7 @@
       <ul class="right hide-on-med-and-down">
         <li class="chosen-list-item">
           <form action="#">
-            <select class="chosen-select">
+            <select class="chosen-select" id="desktop-menu">
               <% _.each(data, function(option) { %>
                 <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>
@@ -21,7 +21,7 @@
       <ul id="nav-mobile" class="side-nav">
         <li>
           <form action="#">
-            <select class="chosen-select" data-placeholder="LOL HI">
+            <select class="chosen-select" data-placeholder="Select a geography" id="mobile-menu">
               <% _.each(data, function(option) { %>
                 <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>

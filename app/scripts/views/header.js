@@ -20,6 +20,8 @@ MfiaClient.Views = MfiaClient.Views || {};
         'click #nav-about': 'goToAbout',
         'click #nav-projects': 'goToProjects',
         'click #logo-container': 'goToHome',
+        'change #mobile-menu': 'mobileMenuData',
+        'change #desktop-menu': 'desktopMenuData',
         'change .chosen-select': 'doSearch',
         'click #toggleAbout': function () {
             MfiaClient.app.trigger("toggleAbout");
@@ -27,6 +29,13 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
     aboutSectionVisible: true,
     aboutSectionOpenOnce: false,
+    search: '',
+    mobileMenuData: function(evt) {
+        this.search = "#projects?" + this.$("#mobile-menu").val();
+    },
+    desktopMenuData: function(evt) {
+        this.search = "#projects?" + this.$("#desktop-menu").val();
+    },
     goToAbout: function(evt) {
         Backbone.history.navigate('about', {'trigger': true });
     },
@@ -37,12 +46,10 @@ MfiaClient.Views = MfiaClient.Views || {};
         Backbone.history.navigate('', {'trigger': true })
     },
     doSearch: function() {
-        var search = "#projects?" + this.$(".chosen-select").val();
         if (!this.aboutSectionOpenOnce) {
             this.aboutSectionOpenOnce = true;
         }
-
-        Backbone.history.navigate(search, {'trigger': true});
+        Backbone.history.navigate(this.search, {'trigger': true});
     },
     render: function () {
         var options = {};
