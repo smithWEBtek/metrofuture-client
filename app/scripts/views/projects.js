@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Views.Projects = Backbone.Marionette.CompositeView.extend({
         initialize: function () {

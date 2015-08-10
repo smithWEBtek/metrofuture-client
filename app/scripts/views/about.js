@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Views.About = Backbone.View.extend({
 
@@ -21,19 +21,35 @@ MfiaClient.Views = MfiaClient.Views || {};
         },
 
         visibleOnce: false,
+        visibleNow: true,
 
         showAbout: function () {
             this.$('#about-section').slideDown();
-            this.$('#about-section-collapsed').hide();
+            this.visibleNow = true;
+            // this.$('#about-section-collapsed').hide();
         },
 
         hideAbout: function () {
             this.$('#about-section').slideUp();
-            this.$('#about-section-collapsed').show();
+            this.visibleNow = false;
+            // this.$('#about-section-collapsed').show();
+        },
+
+        toggleAbout: function () {
+            if (this.visibleNow) {
+                this.hideAbout();
+            } else {
+                this.showAbout();
+            }
         },
 
         initialize: function (options) {
             var that = this;
+
+            MfiaClient.app.on("toggleAbout", function() {
+                that.toggleAbout();
+            });
+
             MfiaClient.Routers.Project.on("route:project", function () {
                 that.visibleOnce = true;
             });
@@ -43,9 +59,7 @@ MfiaClient.Views = MfiaClient.Views || {};
                 if (!this.visibleOnce) {
                     this.visibleOnce = true;
                 } else {
-                    this.$('#about-section').slideUp("slow",function() {
-                        that.$('#about-section-collapsed').show();
-                    });
+                    that.hideAbout();
                 }
             });
         },

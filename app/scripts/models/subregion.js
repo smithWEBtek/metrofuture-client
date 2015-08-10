@@ -3,7 +3,7 @@
 MfiaClient.Models = MfiaClient.Models || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Models.Subregion = Backbone.Model.extend({
 

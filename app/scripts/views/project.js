@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-  'use strict';
+  
 
   MfiaClient.Views.Project = Backbone.View.extend({
 
@@ -15,6 +15,8 @@ MfiaClient.Views = MfiaClient.Views || {};
 
     className: '',
 
+    name: "project",
+
     scrubLink: function (url_string, rm) {
         return url_string.replace(rm, "")
     },
@@ -25,7 +27,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     },
 
     onShow: function () {
-        
+        Materialize.fadeInImage('.materialize-fade-in');
         this.$('.parallax').parallax();
         this.$('.tooltipped').tooltip();
     },

@@ -3,7 +3,6 @@
 MfiaClient.Models = MfiaClient.Models || {};
 
 (function () {
-    'use strict';
 
     MfiaClient.Models.MenuOption = Backbone.Model.extend({
 

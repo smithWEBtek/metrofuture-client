@@ -3,7 +3,7 @@
 MfiaClient.Routers = MfiaClient.Routers || {};
 
 (function () {
-    'use strict';
+    
 
     MfiaClient.Routers.Project = Backbone.Router.extend({
       routes: {
@@ -23,6 +23,7 @@ MfiaClient.Routers = MfiaClient.Routers || {};
       project: function(id) {
         var project = new MfiaClient.Models.Project({'id': id});
         project.fetch({'success': function(response) {
+          MfiaClient.app.trigger("projectView");
           var projectView = new MfiaClient.Views.Project({model: project});
           MfiaClient.app.getRegion('mainRegion').show(projectView);
         }});

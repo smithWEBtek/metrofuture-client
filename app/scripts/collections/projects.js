@@ -3,20 +3,22 @@
 MfiaClient.Collections = MfiaClient.Collections || {};
 
 (function () {
-  'use strict';
 
   MfiaClient.Collections.Projects = Backbone.PageableCollection.extend({
     model: MfiaClient.Models.Project,
     // mode: "infinite",
     initialize: function(options) {
+      var that = this;
+
       this.queryString = options.queryString || null;
 
-      this.on("request", function() {
-          MfiaClient.app.trigger("loading");
+      this.on("request", function() { 
+        MfiaClient.app.trigger("loading");
       });
 
       this.on("sync", function() {
-          MfiaClient.app.trigger("loaded");
+        MfiaClient.app.trigger("filterUpdate", that.queryString);
+        MfiaClient.app.trigger("loaded");
       });
     },
     url: function() {
@@ -42,7 +44,7 @@ MfiaClient.Collections = MfiaClient.Collections || {};
       pageSize: "page[size]"
     },
     state: {
-      pageSize: 10
+      pageSize: 9
     }
   });
 
