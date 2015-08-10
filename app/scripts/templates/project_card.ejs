@@ -4,19 +4,21 @@
       <div class="card-image waves-effect waves-block waves-light">
         <a href="#projects/<%= id %>"><img src="<%= MfiaClient.API + attributes.image %>"></a>
       </div>
+    <% } else { %>
+      <div class="card-image waves-effect waves-block waves-light">
+        <a href="#projects/<%= id %>"><img src="http://mfia.prep.mapc.org/images/img-EMpChg_Map.png?style=small"></a>
+      </div>
     <% } %>
     <div class="card-content">
-      <% if (attributes.image) { %> 
-        <span class="activator card-title grey-text text-darken-4 truncate"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span>
-      <% } else { %>
-        <a href="/#/projects/<%= id %>"><span class="card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right activator"></i></span></a>
-      <% } %>
-      <p class="truncate"><%= attributes.description %></p>
+        <span class="activator card-title grey-text text-darken-4"><%= attributes.title %></span>
+    </div>
+    <div class="card-action white">
+      <span class="small left"><i class="iconography <%= this.slugify(attributes.status) %>"></i> <%= attributes.status %></span><span class="small right"><%= attributes.primary_department %><i class="material-icons toggle right activator">more_vert</i></span>
     </div>
     <div class="card-reveal">
-      <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <i class="mdi-navigation-more-vert right"></i></span>
+      <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <span class="right"><i class="material-icons toggle activator">close</i></span></span>
       <a href="/#/projects/<%= id %>">View This Project</a>
       <p><%= attributes.description %></p>
     </div>
   </div>
-</div>
+</div> 

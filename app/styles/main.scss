@@ -28,7 +28,36 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     cursor: pointer;
 }
 
+.card { 
+    .card-content {
+        .card-title {
+            line-height: 30px;
+            font-size: 20px;
+            z-index: 600;
+        }
+        .card-action {
+            z-index: 999;
 
+        }
+    }
+    .small {
+        font-size: .85rem;
+    }
+    .iconography {
+        font-size: .8rem;
+    }
+    .toggle {
+        font-size: 1.2rem;
+        margin-left: 0px;
+        cursor: pointer;
+    }
+}
+
+.truncate-custom {
+    line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;  /* prevents extra lines from being visible */
+}
 
 .floating-layer-toggle {
     top: 20px;
