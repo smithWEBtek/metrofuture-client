@@ -29,7 +29,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     cursor: pointer;
 }
 
-.card { 
+.card {
     .card-content {
         .card-title {
             line-height: 30px;
@@ -57,7 +57,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 
 .tabs .tab a {
     &:hover {
-        color: darken(#FF9800, 20%);
+        color: lighten(#FF9800, 20%);
     }
 }
 
@@ -98,7 +98,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 }
 
 .map-data-box {
-    min-height: 120px;   
+    min-height: 120px;
 }
 
 .completed {
@@ -201,7 +201,7 @@ img.hero {
 }
 
 .arrow-down {
-    width: 0; 
+    width: 0;
     height: 0;
     color: black;
     border-left: 20px solid transparent;
