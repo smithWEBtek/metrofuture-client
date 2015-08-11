@@ -12,7 +12,8 @@
     "chosen": "~1.4.2",
     "backbone.paginator": "~2.0.2",
     "leaflet": "~0.7.3",
-    "mapbox.js": "~2.2.1"
+    "mapbox.js": "~2.2.1",
+    "socialshares": "~1.0.4"
   },
   "devDependencies": {
     "backbone.paginator": "~2.0.2"

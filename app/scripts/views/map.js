@@ -34,6 +34,7 @@ MfiaClient.Views = MfiaClient.Views || {};
             },
             "click #toggleMap": function () {
                 this.toggleMap();
+                this.map.invalidateSize();
             }
         },
 
@@ -43,16 +44,24 @@ MfiaClient.Views = MfiaClient.Views || {};
         hideMap: function () {
             this.$("#map-area").slideUp();
             this.visibleNow = false;
+            this.$("#hide-text").hide();
+            this.$("#show-text").show();
         },
         showMap: function () {
             this.$("#map-area").slideDown();
             this.visibleNow = true;
+            this.$("#hide-text").show();
+            this.$("#show-text").hide();
         },
         toggleMap: function() {
             if (this.visibleNow) {
                 this.hideMap();
+                this.$("#hide-text").hide();
+                this.$("#show-text").show();
             } else {
                 this.showMap();
+                this.$("#hide-text").show();
+                this.$("#show-text").hide();
             }
         },
 
@@ -105,6 +114,8 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         },
         onShow: function() {
+
+            //bad. refactor later.
             if(MfiaClient.app.getRegion('mainRegion').currentView) {
                 if(MfiaClient.app.getRegion('mainRegion').currentView.model==undefined) {
                     console.log("true");
