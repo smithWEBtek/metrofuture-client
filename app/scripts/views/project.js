@@ -5,7 +5,7 @@ MfiaClient.Views = MfiaClient.Views || {};
 (function () {
   
 
-  MfiaClient.Views.Project = Backbone.View.extend({
+  MfiaClient.Views.Project = Backbone.Marionette.ItemView.extend({
 
     template: JST['app/scripts/templates/project.ejs'],
 

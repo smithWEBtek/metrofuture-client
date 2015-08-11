@@ -29,8 +29,17 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     cursor: pointer;
 }
 
+.card.small .card-content {
+    height: 75px;
+}
+
+.ellipsis-truncation {
+    height: 75px;
+}
+
 .card {
     .card-content {
+        // height:100px;
         .card-title {
             line-height: 30px;
             font-size: 20px;

@@ -33,6 +33,12 @@ MfiaClient.Views = MfiaClient.Views || {};
                 .replace(/^-+/, '')             // Trim - from start of text
                 .replace(/-+$/, '');            // Trim - from end of text
 
+        },
+        onShow: function() {
+            var ellipsis = new Ellipsis(this.$(".ellipsis-truncation")[0]);
+            ellipsis.calc();
+            ellipsis.set();
+            // console.log(this.$(".card-content"));
         }
 
     });
