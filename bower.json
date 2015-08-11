@@ -13,7 +13,8 @@
     "backbone.paginator": "~2.0.2",
     "leaflet": "~0.7.3",
     "mapbox.js": "~2.2.1",
-    "socialshares": "~1.0.4"
+    "socialshares": "~1.0.4",
+    "ftellipsis": "~0.2.3"
   },
   "devDependencies": {
     "backbone.paginator": "~2.0.2"

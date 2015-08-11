@@ -35,6 +35,9 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 
 .ellipsis-truncation {
     height: 75px;
+    p {
+        top: -3px;
+    }
 }
 
 .card {
