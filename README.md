@@ -1,18 +1,54 @@
 ### MetroFuture in Action
-This is the repository for the frontend client of MetroFuture in Action. It is built with Backbone and Marionette. All other dependencies can be found in bower.json. You need Bower and NPM.
+
+The client-side app for MetroFuture in Action.
 
 
-## Development
-To start:
-`npm install`
-`bower install`
-`grunt serve`
+## Prepare for development
+
+Before setting up, make sure you have the following installed:
+
+- Ruby >= 2.1.0
+- Node and NPM
+- Bower
+
+To install the project's dependencies:
+
+```sh
+# In the project directory:
+$ bundle install  # Installs Ruby dependencies
+$ npm install     # Installs Node dependencies
+$ bower install   # Installs web client dependencies
+```
+
+To configure:
+
+Copy `aws-credentials.json.template` to `aws-credentials.json`.
+
+```sh
+$ mv aws-credentials.json.template aws-credentials.json
+```
+
+You don't have to fill in your credientials in order to run the server.
 
 
-## Deploy
-`grunt build`
-`grunt s3:build`
 
-To deploy to S3, you must configure both the `aws-credentials.json` file and the `Gruntfile.js`.
+## Serve
 
-As of now, the develop branch uses fixture data. Staging and Master branches should use live data from the MFIA API endpoint.
+To start the local server:
+
+```sh
+$ grunt serve
+```
+
+
+
+## Deploy to Amazon AWS S3
+
+```sh
+$ grunt build
+$ grunt s3:build
+```
+
+To deploy to S3, you must configure the `aws-credentials.json` file with your credentials: fill in the values with your AWS Access Key ID and Secret Access Key, available through the Amazon AWS management console.
+
+Then, fill in `bucketName` with the name of the S3 bucket to which you plan to deploy the client-side application.

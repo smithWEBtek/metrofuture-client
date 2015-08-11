@@ -1,8 +1,26 @@
-node_modules
-dist
-test/temp
-.sass-cache
-app/bower_components
-.tmp
-test/bower_components/
+# The AWS credentials file has very sensitive information.
+# Never commit passwords and access keys to source control.
+
 aws-credentials.json
+
+
+# Dependencies
+
+node_modules
+app/bower_components
+
+
+# Test directory
+
+test
+
+
+# Distribution files
+
+dist
+
+
+# Temporary Files
+
+.sass-cache
+.tmp
