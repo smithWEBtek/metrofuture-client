@@ -3,7 +3,7 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    
+
 
     MfiaClient.Views.Map = Marionette.ItemView.extend({
 
@@ -24,10 +24,10 @@ MfiaClient.Views = MfiaClient.Views || {};
             },
             "click #subregions": function () {
                 var that = this;
-                
+
                 _.each(this.layers, function(element) {
                     that.map.removeLayer(element);
-                    
+
                 });
                 that.map.addLayer(that.layers.subregions);
                 console.log("subregions");
@@ -103,7 +103,7 @@ MfiaClient.Views = MfiaClient.Views || {};
         render: function () {
             this.$el.html(this.template());
             this.map = L.map(this.$("#map-body")[0], {'zoomControl': false }).setView([42.357778, -71.3], 10);
-            
+
             L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
                 subdomains: 'abcd',
@@ -138,13 +138,12 @@ MfiaClient.Views = MfiaClient.Views || {};
                     weight: 2,
                     opacity: 1,
                     color: 'white',
-                    dashArray: '3',
                     fillOpacity: 0.5,
                     className: "layer-feature"
             };
 
             var highlightStyle = {
-                // color: '#000000', 
+                // color: '#000000',
                 weight: 3,
                 opacity: 0.6,
                 fillOpacity: 1
@@ -155,7 +154,7 @@ MfiaClient.Views = MfiaClient.Views || {};
                 layer.setStyle(style);
                 layer.on("mouseover", function (e) {
                     that.trigger("showData", feature);
-                    layer.setStyle(highlightStyle); 
+                    layer.setStyle(highlightStyle);
                 });
 
                 layer.on("mouseout", function(e) {
@@ -183,7 +182,7 @@ MfiaClient.Views = MfiaClient.Views || {};
                 if (element.attributes.attributes.geojson.type !== undefined) {
                     that.layers.subregions.addData(element.attributes.attributes.geojson);
                 }
-                
+
             });
 
             // var that = this;
