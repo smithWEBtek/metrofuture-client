@@ -23,7 +23,6 @@ MfiaClient.Views = MfiaClient.Views || {};
         childViewContainer: "#projects-grid",
         refresh: function () {
             if (this.loaded) {
-                console.log('more data being retrieved');
                 var that = this;
                 MfiaClient.app.trigger("loading");
                 this.collection.getNextPage({remove:false, "success": function () {
@@ -32,6 +31,14 @@ MfiaClient.Views = MfiaClient.Views || {};
                     }
                     MfiaClient.app.trigger("loaded");
                 }});
+            }
+        },
+        templateHelpers: function() {
+            var that = this;
+            return {
+                header: function() {
+                    return MfiaClient.app.navRegion.currentView.selected;
+                }
             }
         },
         onShow: function () {

@@ -23,7 +23,7 @@
         <li>
           <form action="#">
             <select class="chosen-select black-text" data-placeholder="Select a geography" id="mobile-menu">
-                <option value="">View all projects</option>
+                <option value="">All Projects</option>
               <% _.each(data, function(option) { %>
                 <option value="filter[<%= option.type %>]=<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>

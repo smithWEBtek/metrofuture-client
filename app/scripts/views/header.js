@@ -7,8 +7,7 @@ MfiaClient.Views = MfiaClient.Views || {};
 
   MfiaClient.Views.Header = Backbone.View.extend({
     initialize: function (option) {
-        var that = this;
-
+        this.currentFagment = Backbone.history.getFragment();
     },
     template: JST['app/scripts/templates/header.ejs'],
 
@@ -30,6 +29,7 @@ MfiaClient.Views = MfiaClient.Views || {};
     aboutSectionVisible: true,
     aboutSectionOpenOnce: false,
     search: '',
+    selected: '',
     mobileMenuData: function(evt) {
         this.search = "#projects?" + this.$("#mobile-menu").val();
     },
@@ -73,11 +73,12 @@ MfiaClient.Views = MfiaClient.Views || {};
         });
 
         this.$(".chosen-container-single .chosen-search input").attr("placeholder", "Scroll or start typing...");
-        this.$("a.chosen-single span").text("Viewing all projects");
+        this.$("a.chosen-single span").text("All Projects");
 
         MfiaClient.app.on("projectsChange", function(context) {
             that.$('select').val(context);
             that.$('select').trigger("chosen:updated");
+            that.selected = that.$('select option:selected').html();
         });
     }
   });

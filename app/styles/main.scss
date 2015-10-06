@@ -35,16 +35,13 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 
 .ellipsis-truncation {
     height: 75px;
-    p {
-        top: -3px;
-    }
 }
 
 .card {
     .card-content {
         // height:100px;
         .card-title {
-            line-height: 30px;
+            line-height: 27px;
             font-size: 20px;
             z-index: 600;
         }
