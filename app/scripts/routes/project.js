@@ -17,10 +17,6 @@ MfiaClient.Routers = MfiaClient.Routers || {};
         MfiaClient.app.trigger("projectsChange", queryString);
         projects.fetch({'success': function(response) {
           var collectionView = new MfiaClient.Views.Projects({collection: projects});
-          projects = projects.groupBy(function(project) {
-            return project.get("attributes").primary_department;
-          });
-          console.log(projects);
           MfiaClient.app.getRegion('mainRegion').show(collectionView);
         }});
       },

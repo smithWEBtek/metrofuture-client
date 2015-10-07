@@ -16,9 +16,21 @@ MfiaClient.Collections = MfiaClient.Collections || {};
         MfiaClient.app.trigger("loading");
       });
 
-      this.on("sync", function() {
+      this.on("add sync", function() {
         MfiaClient.app.trigger("filterUpdate", that.queryString);
         MfiaClient.app.trigger("loaded");
+      });
+
+      this.listenTo(this, 'add remove sync', this._regroup);
+      this._groupedData = [];
+    },
+    getGroupedModels: function() {
+        console.log(this._groupedData);
+        return this._groupedData;
+    },
+    _regroup: function() {
+      this._groupedData = _.groupBy(this.models, function(project) {
+        return project.get("attributes").primary_department;
       });
     },
     url: function() {

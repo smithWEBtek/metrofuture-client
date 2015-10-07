@@ -39,6 +39,8 @@ window.MfiaClient = {
 
       var subregions = new MfiaClient.Collections.Subregions();
       subregions.fetch({'success': function(subregions_response) {
+
+        Backbone.history.start(); 
         //the map depends on this data so it's initialized in the fetch callbacks of both muni and subr
         that.app.getRegion('mapRegion').show(new that.Views.Map({municipalities: municipalities_response, subregions: subregions_response}));
 
@@ -72,7 +74,7 @@ window.MfiaClient = {
         $(".loading").hide();
     });
 
-    Backbone.history.start(); 
+
   }
 };
 
