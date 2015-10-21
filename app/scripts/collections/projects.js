@@ -30,11 +30,11 @@ MfiaClient.Collections = MfiaClient.Collections || {};
     },
     _regroup: function() {
       this._groupedData = _.groupBy(this.models, function(project) {
-        return project.get("attributes").primary_department;
+        return project.get("attributes").geography;
       });
     },
     url: function() {
-      var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,image';
+      var full_url = MfiaClient.API + '/projects?fields[projects]=title,description,geography,primary-department,website,image';
       if(this.queryString !== null) {
         full_url = full_url + "&" + this.queryString;
       }
