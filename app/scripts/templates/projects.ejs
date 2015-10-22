@@ -1,13 +1,4 @@
-<div class="section container">
-  <h2><%= header() %></h2>
-  <% _.each( getGroupedModels(), function ( category, i ) {  %>
-    <div id="projects-grid" class="row">
-      <h5><%= i %></h5> <br />
-      <% _.each( category, function ( project ) {  %>
-        <%= projectCardTemplate(project.attributes) %>
-      <% }) %>
-    </div>
-  <% }) %>
+<div id="projects-grid" class="section container row">
 </div>
 <!-- TODO: Fix this elements triggering event -->
 <div class="center loading">

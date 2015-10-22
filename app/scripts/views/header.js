@@ -31,10 +31,10 @@ MfiaClient.Views = MfiaClient.Views || {};
     search: '',
     selected: '',
     mobileMenuData: function(evt) {
-        this.search = "#projects?" + this.$("#mobile-menu").val();
+        this.search = this.$("#mobile-menu").val();
     },
     desktopMenuData: function(evt) {
-        this.search = "#projects?" + this.$("#desktop-menu").val();
+        this.search = this.$("#desktop-menu").val();
     },
     goToAbout: function(evt) {
         Backbone.history.navigate('about', {'trigger': true });

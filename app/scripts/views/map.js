@@ -104,8 +104,8 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.$el.html(this.template());
             this.map = L.map(this.$("#map-body")[0], {'zoomControl': false }).setView([42.357778, -71.3], 10);
 
-            L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
+                attribution: 'Tiles by <a href="http://www.mapc.org/">Metropolitan Area Planning Council</a>',
                 subdomains: 'abcd',
                 maxZoom: 19
             }).addTo(this.map);
@@ -163,7 +163,7 @@ MfiaClient.Views = MfiaClient.Views || {};
                 });
 
                 layer.on("click", function(e) {
-                    var muni_uri = "#projects?filter[" + feature.properties.type + "]=" + feature.properties.id;
+                    var muni_uri = "#" + feature.properties.type + "/" + feature.properties.id;
                     Backbone.history.navigate(muni_uri, {'trigger': true});
                 });
             }
