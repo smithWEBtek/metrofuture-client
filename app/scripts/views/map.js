@@ -150,20 +150,22 @@ MfiaClient.Views = MfiaClient.Views || {};
                 // fillColor: '#2262CC'
             };
 
-            function onEachFeature(feature, layer) {
+            function onEachFeature(feature, layer) { 
                 layer.setStyle(style);
-                layer.on("mouseover", function (e) {
-                    that.trigger("showData", feature);
-                    layer.setStyle(highlightStyle);
-                });
+                // layer.on("mouseover", function (e) {
+                //     that.trigger("showData", feature);
+                //     layer.setStyle(highlightStyle);
+                // });
 
-                layer.on("mouseout", function(e) {
-                    that.trigger("showExplanation", feature);
-                    layer.setStyle(style);
-                });
+                // layer.on("mouseout", function(e) {
+                //     that.trigger("showExplanation", feature);
+                //     layer.setStyle(style);
+                // });
 
                 layer.on("click", function(e) {
-                    var muni_uri = "#" + feature.properties.type + "/" + feature.properties.id;
+                    // debugger;
+                    // var muni_uri = "#" + feature.properties.type + "/" + feature.properties.id;
+                    var muni_uri = "municipalities/22"
                     Backbone.history.navigate(muni_uri, {'trigger': true});
                 });
             }

@@ -1,29 +1,15 @@
 <div class="section container">
-  <div class="row">
+
+<div class="row">
     <h2><%= data.attributes.name %></h2>
   </div>
   <div id="projects-grid" class="row">
-    <h5>Single Municipality</h5> <br />
-    <% _.each( getGroupedModels()['Single Municipality'], function ( project ) {  %>
-      <%= projectCardTemplate(project) %>
+    <% if(data.attributes.projects) { %>
+    <h5>Projects for <%= data.attributes.name %>:</h5> <br />
+    <% _.each(data.attributes.projects, function ( project ) {  %>
+    <%= projectCardTemplate(project) %>
     <%  }); %>
+    <% } else { %>
+    <h5>No projects for <%= data.attributes.name %>.</h5> <br />
+    <% }; %>
   </div>
-  <div id="projects-grid" class="row">
-    <h5>Multiple Municipalities</h5> <br />
-    <% _.each( getGroupedModels()['Multiple Municipalities'], function ( project ) {  %>
-      <%= projectCardTemplate(project) %>
-    <%  }); %>
-  </div>   
-  <div id="projects-grid" class="row">
-    <h5>MAPC Region-Wide</h5> <br />
-    <% _.each( getGroupedModels()['MAPC Region-Wide'], function ( project ) {  %>
-      <%= projectCardTemplate(project) %>
-    <%  }); %>
-  </div>
-  <div id="projects-grid" class="row">
-    <h5>State-Wide</h5> <br />
-    <% _.each( getGroupedModels()['State-Wide'], function ( project ) {  %>
-      <%= projectCardTemplate(project) %>
-    <%  }); %>
-  </div>
-</div>

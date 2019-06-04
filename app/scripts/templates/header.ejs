@@ -4,14 +4,21 @@
     <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
       <ul class="right hide-on-med-and-down">
         <li class="chosen-list-item">
+
           <form action="#">
             <select class="chosen-select" id="desktop-menu">
               <option value="">View all projects</option>
               <% _.each(data, function(option) { %>
-                <option value="#<%= option.type %>/<%= option.id %>"><%= option.attributes.name %></option>
+                <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
+                  <!-- <option value="#<%= option.type %>/<%= option.id %>"><%= option.attributes.name %></option> -->
+                  <option value="municipalities/<%= option.id %>"><%= option.attributes.name %></option>
+                  <% } else if(option.type == "subregion"){ %>
+                    <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
+                <% } %>
               <% }); %>
             </select>
           </form>
+
         </li>
         <li>
           <a class="white-text" id="toggleAbout">
@@ -25,7 +32,7 @@
             <select class="chosen-select black-text" data-placeholder="Select a geography" id="mobile-menu">
                 <option value="">All Projects</option>
               <% _.each(data, function(option) { %>
-                <option value="#<%= option.type %>/<%= option.id %>"><%= option.attributes.name %></option>
+                <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>
             </select>
           </form>
