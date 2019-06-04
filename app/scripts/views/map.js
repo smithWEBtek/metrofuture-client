@@ -170,14 +170,14 @@ MfiaClient.Views = MfiaClient.Views || {};
 
             this.layers.municipalities = L.geoJson(null, {onEachFeature: onEachFeature }).addTo(this.map);
             _.forEach(this.municipalities.models, function(element) {
-                element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
+                // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
                 that.layers.municipalities.addData(element.attributes.attributes.geojson);
             });
 
             //does not add to map initially, so no #addTo method is called
             this.layers.subregions = L.geoJson(null,{onEachFeature:onEachFeature})
             _.forEach(this.subregions.models, function(element) {
-                element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
+                // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
                 //is it valid geojson? can't leaflet just check this...
                 if (element.attributes.attributes.geojson.type !== undefined) {
                     that.layers.subregions.addData(element.attributes.attributes.geojson);

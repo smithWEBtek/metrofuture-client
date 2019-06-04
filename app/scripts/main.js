@@ -9,7 +9,8 @@ window.MfiaClient = {
   init: function () {
 
     //API Endpoint
-    MfiaClient.API = "http://mfia.dev.mapc.org"
+    // MfiaClient.API = "http://mfia.dev.mapc.org"
+    MfiaClient.API = "http://localhost:3000/"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();

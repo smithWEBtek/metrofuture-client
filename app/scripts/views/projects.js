@@ -36,9 +36,9 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         onShow: function () {
             var that = this;
-            if (that.collection.links.next == null) {
-                that.$('#out-of-projects').show();
-            }
+            // if (that.collection.links.next == null) {
+            //     that.$('#out-of-projects').show();
+            // }
             
             $(window).scroll(function() {
                if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
