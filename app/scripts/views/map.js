@@ -14,9 +14,9 @@ MfiaClient.Views = MfiaClient.Views || {};
         className: '',
 
         events: {
-            "click #municipalities": function() {
+            "click #municipalities": function () {
                 var that = this;
-                _.each(this.layers, function(element) {
+                _.each(this.layers, function (element) {
                     that.map.removeLayer(element);
                 });
                 that.map.addLayer(that.layers.municipalities);
@@ -25,7 +25,7 @@ MfiaClient.Views = MfiaClient.Views || {};
             "click #subregions": function () {
                 var that = this;
 
-                _.each(this.layers, function(element) {
+                _.each(this.layers, function (element) {
                     that.map.removeLayer(element);
 
                 });
@@ -41,21 +41,21 @@ MfiaClient.Views = MfiaClient.Views || {};
         visibleNow: true,
         visibleOnce: false,
 
-        hideMap: function () {
-            this.$("#map-area").slideUp();
-            this.visibleNow = false;
-            this.$("#hide-text").hide();
-            this.$("#show-text").show();
-        },
+        // hideMap: function () {
+        //     this.$("#map-area").slideUp();
+        //     this.visibleNow = false;
+        //     this.$("#hide-text").hide();
+        //     this.$("#show-text").show();
+        // },
         showMap: function () {
             this.$("#map-area").slideDown();
             this.visibleNow = true;
             this.$("#hide-text").show();
             this.$("#show-text").hide();
         },
-        toggleMap: function() {
+        toggleMap: function () {
             if (this.visibleNow) {
-                this.hideMap();
+                // this.hideMap();
                 this.$("#hide-text").hide();
                 this.$("#show-text").show();
             } else {
@@ -71,14 +71,14 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.subregions = options.subregions;
             this.layers = {};
 
-            this.on("showData", function(context) {
+            this.on("showData", function (context) {
                 that.$("#explanation").hide();
                 that.$("#feature-data").show();
                 //just use a template, pass context
-                that.$("#feature-data").html(JST['app/scripts/templates/map_feature_data_table.ejs']({context: context}));
+                that.$("#feature-data").html(JST['app/scripts/templates/map_feature_data_table.ejs']({ context: context }));
             });
 
-            this.on("showExplanation", function(context) {
+            this.on("showExplanation", function (context) {
                 that.$("#feature-data").empty();
                 that.$("#explanation").show();
                 that.$("feature-data").hide();
@@ -88,12 +88,12 @@ MfiaClient.Views = MfiaClient.Views || {};
                 that.visibleOnce = true;
             });
 
-            this.listenTo(MfiaClient.app, "routed", function() {
+            this.listenTo(MfiaClient.app, "routed", function () {
                 var that = this;
                 if (!this.visibleOnce) {
                     this.visibleOnce = true;
                 } else {
-                    that.hideMap();
+                    // that.hideMap();
                 }
             });
         },
@@ -102,22 +102,22 @@ MfiaClient.Views = MfiaClient.Views || {};
 
         render: function () {
             this.$el.html(this.template());
-            this.map = L.map(this.$("#map-body")[0], {'zoomControl': false }).setView([42.357778, -71.3], 10);
+            this.map = L.map(this.$("#map-body")[0], { 'zoomControl': false }).setView([42.357778, -71.3], 10);
 
             L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
                 attribution: 'Tiles by <a href="http://www.mapc.org/">Metropolitan Area Planning Council</a>',
                 subdomains: 'abcd',
                 maxZoom: 19
             }).addTo(this.map);
-            this.map.addControl(L.control.zoom({position:'topright'}))
+            this.map.addControl(L.control.zoom({ position: 'topright' }))
             this.map.scrollWheelZoom.disable();
 
         },
-        onShow: function() {
+        onShow: function () {
 
             //bad. refactor later.
-            if(MfiaClient.app.getRegion('mainRegion').currentView) {
-                if(MfiaClient.app.getRegion('mainRegion').currentView.model==undefined) {
+            if (MfiaClient.app.getRegion('mainRegion').currentView) {
+                if (MfiaClient.app.getRegion('mainRegion').currentView.model == undefined) {
                     console.log("true");
                 } else {
                     console.log("false");
@@ -134,12 +134,12 @@ MfiaClient.Views = MfiaClient.Views || {};
             this.map.invalidateSize();
 
             var style = {
-                    fillColor: "#FF9800",
-                    weight: 2,
-                    opacity: 1,
-                    color: 'white',
-                    fillOpacity: 0.5,
-                    className: "layer-feature"
+                fillColor: "#FF9800",
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.5,
+                className: "layer-feature"
             };
 
             var highlightStyle = {
@@ -150,42 +150,49 @@ MfiaClient.Views = MfiaClient.Views || {};
                 // fillColor: '#2262CC'
             };
 
-            function onEachFeature(feature, layer) { 
+            function onEachFeature(feature, layer) {
                 layer.setStyle(style);
-                // layer.on("mouseover", function (e) {
-                //     that.trigger("showData", feature);
-                //     layer.setStyle(highlightStyle);
-                // });
+                layer.on("mouseover", function (e) {
+                    that.trigger("showData", feature);
+                    layer.setStyle(highlightStyle);
+                });
 
-                // layer.on("mouseout", function(e) {
-                //     that.trigger("showExplanation", feature);
-                //     layer.setStyle(style);
-                // });
+                layer.on("mouseout", function (e) {
+                    that.trigger("showExplanation", feature);
+                    layer.setStyle(style);
+                });
 
-                layer.on("click", function(e) {
-                    // debugger;
-                    // var muni_uri = "#" + feature.properties.type + "/" + feature.properties.id;
-                    var muni_uri = "municipalities/22"
-                    Backbone.history.navigate(muni_uri, {'trigger': true});
+                layer.on("click", function (e) {
+                    console.log('[map.js] feature', feature)
+                    var muni_uri = "#municipalities/" + feature.id;
+
+                    Backbone.history.navigate(muni_uri, { 'trigger': true });
                 });
             }
 
-            this.layers.municipalities = L.geoJson(null, {onEachFeature: onEachFeature }).addTo(this.map);
-            _.forEach(this.municipalities.models, function(element) {
+            this.layers.municipalities = L.geoJson(null, { onEachFeature: onEachFeature }).addTo(this.map);
+            _.forEach(this.municipalities.models, function (element) {
                 // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
-                that.layers.municipalities.addData(element.attributes.attributes.geojson);
+                if (element.attributes.attributes.geojson) {
+                    that.layers.municipalities.addData(element.attributes.attributes.geojson);
+                }
             });
 
             //does not add to map initially, so no #addTo method is called
-            this.layers.subregions = L.geoJson(null,{onEachFeature:onEachFeature})
-            _.forEach(this.subregions.models, function(element) {
-                // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
-                //is it valid geojson? can't leaflet just check this...
-                if (element.attributes.attributes.geojson.type !== undefined) {
-                    that.layers.subregions.addData(element.attributes.attributes.geojson);
-                }
+            this.layers.subregions = L.geoJson(null, { onEachFeature: onEachFeature })
+            // _.forEach(this.subregions.models, function (element) {
+            // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
+            //is it valid geojson? can't leaflet just check this...
 
-            });
+
+            // debugger;
+
+
+            // if (element.attributes.attributes.geojson.type != undefined) {
+            // that.layers.subregions.addData(element.attributes.attributes.geojson);
+            // }
+
+            // });
 
             // var that = this;
             // // L.geoJson(response).addTo(that.map);

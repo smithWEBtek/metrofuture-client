@@ -1,7 +1,8 @@
 <div class="navbar-fixed">
   <nav class="indigo darken-4" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="/#" class="brand-logo header-style truncate hide-on-small-only">METROFUTURE IN ACTION</a>
-    <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="/#"
+        class="brand-logo header-style truncate hide-on-small-only">METROFUTURE IN ACTION</a>
+      <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
       <ul class="right hide-on-med-and-down">
         <li class="chosen-list-item">
 
@@ -9,12 +10,11 @@
             <select class="chosen-select" id="desktop-menu">
               <option value="">View all projects</option>
               <% _.each(data, function(option) { %>
-                <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
-                  <!-- <option value="#<%= option.type %>/<%= option.id %>"><%= option.attributes.name %></option> -->
-                  <option value="municipalities/<%= option.id %>"><%= option.attributes.name %></option>
-                  <% } else if(option.type == "subregion"){ %>
-                    <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
-                <% } %>
+              <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
+              <option value="municipalities/<%= option.attributes.geojson.id %>"><%= option.attributes.name %></option>
+              <% } else if(option.type == "subregion"){ %>
+              <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
+              <% } %>
               <% }); %>
             </select>
           </form>
@@ -30,9 +30,9 @@
         <li>
           <form action="#">
             <select class="chosen-select black-text" data-placeholder="Select a geography" id="mobile-menu">
-                <option value="">All Projects</option>
+              <option value="">All Projects</option>
               <% _.each(data, function(option) { %>
-                <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
+              <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
               <% }); %>
             </select>
           </form>
@@ -53,19 +53,27 @@
 
     <h5>About "MetroFuture in Action"</h5>
     <p>
-      This site highlights the work of the Metropolitan Area Planning Council (MAPC), the regional planning agency for the 101 cities and towns of Greater Boston. Our long-term regional plan, MetroFuture, guides our work, and the projects shown here demonstrate how we implement MetroFuture on the ground.
+      This site highlights the work of the Metropolitan Area Planning Council (MAPC), the regional planning agency for
+      the 101 cities and towns of Greater Boston. Our long-term regional plan, MetroFuture, guides our work, and the
+      projects shown here demonstrate how we implement MetroFuture on the ground.
     </p>
     <p>
-      You can use the map on the main page or the pull-down in the header bar to filter projects by municipality (that is, city or town), and by subregion (the "chapters" or groups of municipalities that comprise MAPC). Select a single project to view more details about that project.
+      You can use the map on the main page or the pull-down in the header bar to filter projects by municipality (that
+      is, city or town), and by subregion (the "chapters" or groups of municipalities that comprise MAPC). Select a
+      single project to view more details about that project.
     </p>
-    <br/>
+    <br />
 
     <h5>More About MAPC</h5>
     <p>
-      The <a href="http://mapc.org" target="_blank">Metropolitan Area Planning Council</a> (MAPC) is the regional planning agency for the 101 cities and towns of Greater Boston. We work to improve Metro Boston’s livability – its prosperity, safety, health, climate resilience, equity, and distinctive character.
+      The <a href="http://mapc.org" target="_blank">Metropolitan Area Planning Council</a> (MAPC) is the regional
+      planning agency for the 101 cities and towns of Greater Boston. We work to improve Metro Boston’s livability – its
+      prosperity, safety, health, climate resilience, equity, and distinctive character.
     </p>
     <p>
-      We provide superb, easy-to-access planning services; we offer programs to save taxpayer money through group purchasing; and we serve as a regional "think tank", generating actionable data and analysis, advocating for regional priorities, and promoting best practices and collaboration.
+      We provide superb, easy-to-access planning services; we offer programs to save taxpayer money through group
+      purchasing; and we serve as a regional "think tank", generating actionable data and analysis, advocating for
+      regional priorities, and promoting best practices and collaboration.
     </p>
     <p>
       <a href="mailto:inquiries@mapc.org">
@@ -73,7 +81,7 @@
       </a>
       to learn how MAPC can help your community.
     </p>
-    <br/>
+    <br />
 
     <h5>More About MetroFuture</h5>
     <p>
@@ -91,7 +99,7 @@
     <p>
       Learn more about MetroFuture at <a href="http://metrofuture.org" target="_blank">metrofuture.org</a>.
     </p>
-    <br/><br/><br/><br/>
+    <br /><br /><br /><br />
 
   </div>
   <div class="modal-footer">
