@@ -9,18 +9,20 @@ window.MfiaClient = {
   init: function () {
 
     //API Endpoint
-    MfiaClient.API = "http://mfia.dev.mapc.org"
+    // MfiaClient.API = "http://mfia.dev.mapc.org"
+    MfiaClient.API = "http://localhost:3000/"
+    // MfiaClient.API = "https://metrofuture-api-2.herokuapp.com/"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
 
     //add regions for full layout
     this.app.addRegions({
-        navRegion: '#header',
-        mainRegion: '#main',
-        footerRegion: '#footer',
-        aboutRegion: '#about',
-        mapRegion: '#map'
+      navRegion: '#header',
+      mainRegion: '#main',
+      footerRegion: '#footer',
+      aboutRegion: '#about',
+      mapRegion: '#map'
     });
 
     //this logic needs to be moved somewhere else 
@@ -28,29 +30,33 @@ window.MfiaClient = {
     var that = this;
     var options = [];
     var municipalities = new MfiaClient.Collections.Municipalities();
-    
+
 
     //fetch data for dropdown, render HEADER
-    municipalities.fetch({'success': function(municipalities_response) {
+    municipalities.fetch({
+      'success': function (municipalities_response) {
 
-      _.map(municipalities.toJSON(), function(option) {
-        options.push(option);
-      });
-
-      var subregions = new MfiaClient.Collections.Subregions();
-      subregions.fetch({'success': function(subregions_response) {
-
-        Backbone.history.start(); 
-        //the map depends on this data so it's initialized in the fetch callbacks of both muni and subr
-        that.app.getRegion('mapRegion').show(new that.Views.Map({municipalities: municipalities_response, subregions: subregions_response}));
-
-        _.map(subregions.toJSON(), function(option) {
+        _.map(municipalities.toJSON(), function (option) {
           options.push(option);
         });
 
-        that.app.getRegion('navRegion').show(new that.Views.Header({model: options, }));
-      }});
-    }});
+        var subregions = new MfiaClient.Collections.Subregions();
+        subregions.fetch({
+          'success': function (subregions_response) {
+
+            Backbone.history.start();
+            //the map depends on this data so it's initialized in the fetch callbacks of both muni and subr
+            that.app.getRegion('mapRegion').show(new that.Views.Map({ municipalities: municipalities_response, subregions: subregions_response }));
+
+            _.map(subregions.toJSON(), function (option) {
+              options.push(option);
+            });
+
+            that.app.getRegion('navRegion').show(new that.Views.Header({ model: options, }));
+          }
+        });
+      }
+    });
 
     // render footer 
     that.app.getRegion('footerRegion').show(new that.Views.Footer());
@@ -62,19 +68,15 @@ window.MfiaClient = {
       that.app.trigger("routed");
     });
 
-
     // render about
     that.app.getRegion('aboutRegion').show(new that.Views.About());
 
-
-    MfiaClient.app.on("loading", function() {
-        $(".loading").show();
+    MfiaClient.app.on("loading", function () {
+      $(".loading").show();
     });
-    MfiaClient.app.on("loaded", function() {
-        $(".loading").hide();
+    MfiaClient.app.on("loaded", function () {
+      $(".loading").hide();
     });
-
-
   }
 };
 

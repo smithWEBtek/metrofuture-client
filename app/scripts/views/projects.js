@@ -3,15 +3,15 @@
 MfiaClient.Views = MfiaClient.Views || {};
 
 (function () {
-    
+
 
     MfiaClient.Views.Projects = Backbone.Marionette.CompositeView.extend({
         initialize: function () {
             var that = this;
-            MfiaClient.app.on("loading", function() {
+            MfiaClient.app.on("loading", function () {
                 that.loaded = false;
             });
-            MfiaClient.app.on("loaded", function() {
+            MfiaClient.app.on("loaded", function () {
                 that.loaded = true;
             });
         },
@@ -25,31 +25,33 @@ MfiaClient.Views = MfiaClient.Views || {};
             if (this.loaded) {
                 var that = this;
                 MfiaClient.app.trigger("loading");
-                this.collection.getNextPage({remove:false, "success": function () {
-                    if (that.collection.links.next == null) {
-                        that.$('#out-of-projects').show();
+                this.collection.getNextPage({
+                    remove: false, "success": function () {
+                        if (that.collection.links.next == null) {
+                            that.$('#out-of-projects').show();
+                        }
+                        MfiaClient.app.trigger("loaded");
                     }
-                    MfiaClient.app.trigger("loaded");
-                }});
+                });
             }
         },
 
         onShow: function () {
             var that = this;
-            if (that.collection.links.next == null) {
-                that.$('#out-of-projects').show();
-            }
-            
-            $(window).scroll(function() {
-               if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-                    if (that.collection.links.next !== null){
-                        that.refresh();
-                    } else {
-                        that.$('#out-of-projects').show();
-                    }
-               }
+            // if (that.collection.links.next == null) {
+            //     that.$('#out-of-projects').show();
+            // }
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                    // if (that.collection.links.next !== null){
+                    //     that.refresh();
+                    // } else {
+                    //     that.$('#out-of-projects').show();
+                    // }
+                }
             });
-            
+
         },
         onDestroy: function () {
             $(window).unbind("scroll");

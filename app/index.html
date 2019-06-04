@@ -1,87 +1,93 @@
 <!doctype html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>MetroFuture in Action</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.rawgit.com/socialshares/buttons/v1.0.4/build/css/buttons.css" />
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
-        <div class="progress top-progress loading">
-          <div class="indeterminate"></div>
-        </div>
-      <div id="header"></div>
-      <div id="about"></div>
-      <div id="map"></div>
-      <div id="main"></div>
-      <footer class="page-footer orange" id="footer"></footer>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="">
+  <title>MetroFuture in Action</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/socialshares/buttons/v1.0.4/build/css/buttons.css" />
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <div class="progress top-progress loading">
+    <div class="indeterminate"></div>
+  </div>
+  <div id="header"></div>
+  <div id="about"></div>
+  <div id="map"></div>
+  <div id="main"></div>
+  <footer class="page-footer orange" id="footer"></footer>
 
 
-      <!--  Scripts-->
+  <!--  Scripts-->
 
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-5547782-24');ga('send','pageview');
-        </script>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function (b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+      function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+      e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+      e.src = '//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-5547782-24'); ga('send', 'pageview');
+  </script>
 
-        <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/backbone/backbone.js"></script>
-        <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
-        <script src="bower_components/backbone.paginator/lib/backbone.paginator.min.js"></script>
-        <script src="bower_components/leaflet/dist/leaflet.js"></script>
-        <script src="bower_components/socialshares/build/js/buttons.js"></script>
-        <!-- endbuild -->
+  <!-- build:js scripts/vendor.js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+  <script src="bower_components/marionette/lib/backbone.marionette.min.js"></script>
+  <script src="bower_components/backbone.paginator/lib/backbone.paginator.min.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+  <script src="bower_components/socialshares/build/js/buttons.js"></script>
+  <!-- endbuild -->
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/materialize/bin/materialize.js"></script>
-        <script src="bower_components/chosen/chosen.jquery.min.js"></script>
-        <script src="bower_components/ftellipsis/lib/index.js"></script>
-        <!-- endbuild -->
+  <!-- build:js scripts/plugins.js -->
+  <script src="bower_components/materialize/bin/materialize.js"></script>
+  <script src="bower_components/chosen/chosen.jquery.min.js"></script>
+  <script src="bower_components/ftellipsis/lib/index.js"></script>
+  <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
-        <script src="scripts/models/project.js"></script>
-        <script src="scripts/views/project.js"></script>
-        <script src="scripts/routes/project.js"></script>
-        <script src="scripts/views/about.js"></script>
-        <script src="scripts/views/header.js"></script>
-        <script src="scripts/collections/projects.js"></script>
-        <script src="scripts/views/project_card.js"></script>
-        <script src="scripts/views/projects.js"></script>
-        <script src="scripts/views/home.js"></script>
-        <script src="scripts/models/municipality.js"></script>
-        <script src="scripts/models/subregion.js"></script>
-        <script src="scripts/collections/municipalities.js"></script>
-        <script src="scripts/collections/subregions.js"></script>
-        <script src="scripts/collections/options.js"></script>
-        <script src="scripts/models/menuOption.js"></script>
-        <script src="scripts/views/footer.js"></script>
-        <script src="scripts/views/FormDropdown.js"></script>
-        <script src="//use.typekit.net/ujn0zlf.js"></script>
-        <script>try{Typekit.load();}catch(e){}</script>
-        <script src="scripts/views/map.js"></script>
-        <script src="scripts/views/municipality.js"></script>
-        <script src="scripts/views/subregion.js"></script>
-        <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/templates.js"></script>
+  <script src="scripts/models/project.js"></script>
+  <script src="scripts/views/project.js"></script>
+  <script src="scripts/routes/project.js"></script>
+  <script src="scripts/views/about.js"></script>
+  <script src="scripts/views/header.js"></script>
+  <script src="scripts/collections/projects.js"></script>
+  <script src="scripts/views/project_card.js"></script>
+  <script src="scripts/views/projects.js"></script>
+  <script src="scripts/views/home.js"></script>
+  <script src="scripts/models/municipality.js"></script>
+  <script src="scripts/models/subregion.js"></script>
+  <script src="scripts/collections/municipalities.js"></script>
+  <script src="scripts/collections/subregions.js"></script>
+  <script src="scripts/collections/options.js"></script>
+  <script src="scripts/models/menuOption.js"></script>
+  <script src="scripts/views/footer.js"></script>
+  <script src="scripts/views/FormDropdown.js"></script>
+  <script src="//use.typekit.net/ujn0zlf.js"></script>
+  <script>try { Typekit.load(); } catch (e) { }</script>
+  <script src="scripts/views/map.js"></script>
+  <script src="scripts/views/municipality.js"></script>
+  <script src="scripts/views/subregion.js"></script>
+  <!-- endbuild -->
 </body>
+
 </html>

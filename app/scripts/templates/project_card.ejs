@@ -1,25 +1,24 @@
+<% if (obj.status) { %>
 <div class="col s12 m6 l4">
   <div class="card small">
-    <% if (attributes.image.small) { %>
-      <div class="card-image waves-effect waves-block waves-light">
-        <a href="#projects/<%= id %>"><img src="<%= attributes.image.small %>"></a>
-      </div>
-    <% } else { %>
-      <div class="card-image waves-effect waves-block waves-light">
-        <a href="#projects/<%= id %>"><img src="images/MAPC_Logo.png"></a>
-      </div>
-    <% } %>
     <div class="card-content">
-        <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= attributes.title %></span>
-    </div>
-    <div class="card-action white">
-      <!-- this.slugify(attributes.status)  -->
-      <span class="small left"><i class="iconography "></i> <%= attributes.status %></span><span class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
-    </div>
-    <div class="card-reveal">
-      <span class="activator card-title grey-text text-darken-4"><%= attributes.title %> <span class="right"><i class="material-icons toggle activator">close</i></span></span>
-      <a href="/#/projects/<%= id %>">View This Project</a>
-      <p><%= attributes.description %></p>
+      <span class="activator card-title black-text text-darken-5 ellipsis-truncation"><%= obj.title %></span>
+      <div
+        class="card-action primary-department-<%= obj.status == 'Completed' ? 'completed' : obj.primary_department_css_class %>">
+        <!-- this.slugify(obj.status)  -->
+        <span class="small left"><%= obj.status %></span>
+        <span class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
+        <span class="small right"><%= obj.primary_department %></span>
+        </span>
+      </div>
+      <div class="card-reveal">
+        <span class="activator card-title black-text text-darken-5">
+          <i class="material-icons toggle activator">close</i> <%= obj.title %></span>
+        <span class="right">
+          <!-- <a href="/#/projects/<%= id %>">View This Project</a> -->
+          <p style="font-size: 12px"><%= obj.description %></p>
+      </div>
     </div>
   </div>
-</div> 
+</div>
+<% } %>
