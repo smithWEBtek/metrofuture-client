@@ -1,11 +1,10 @@
 <div class="section container">
 
-<div class="row">
-    <h2><%= data.attributes.name %></h2>
+  <div class="row">
+    <h5><%= data.attributes.name %></h5>
   </div>
   <div id="projects-grid" class="row">
     <% if(data.attributes.projects) { %>
-    <h5>Projects for <%= data.attributes.name %>:</h5> <br />
     <% _.each(data.attributes.projects, function ( project ) {  %>
     <%= projectCardTemplate(project) %>
     <%  }); %>
