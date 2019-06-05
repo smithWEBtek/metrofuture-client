@@ -8,7 +8,8 @@
 
           <form action="#">
             <select class="chosen-select" id="desktop-menu">
-              <option value="">View all projects</option>
+              <option value="#">View all projects</option>
+
               <% _.each(data, function(option) { %>
               <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
               <option value="municipalities/<%= option.attributes.geojson.id %>"><%= option.attributes.name %></option>

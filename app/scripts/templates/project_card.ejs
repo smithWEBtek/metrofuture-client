@@ -1,26 +1,47 @@
+<% if (obj.image) { %>
 <div class="col s12 m6 l4">
   <div class="card small">
-
-    <% if (obj.image) { %>
-      <div class="card-image waves-effect waves-block waves-light">
-        <a href="#projects/<%= id %>"><img src="<%= obj.image %>"></a>
-      </div>
-    <% } else { %>
-      <div class="card-image waves-effect waves-block waves-light">
-        <a href="#projects/<%= id %>"><img src="images/MAPC_Logo.png"></a>
-      </div>
-    <% } %>
-    <div class="card-content">
-        <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= obj.title %></span>
+    <div class="card-image waves-effect waves-block waves-light">
+      <a href="#projects/<%= id %>"><img src="<%= obj.image %>"></a>
     </div>
+
+    <div class="card-content">
+      <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= obj.title %></span>
+    </div>
+
     <div class="card-action white">
       <!-- this.slugify(obj.status)  -->
-      <span class="small left"><i class="iconography "></i> <%= obj.status %></span><span class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
+      <span class="small left"><i class="iconography "></i> <%= obj.status %></span><span class="small right"><i
+          class="material-icons toggle right activator">more_vert</i></span>
     </div>
     <div class="card-reveal">
-      <span class="activator card-title grey-text text-darken-4"><%= obj.title %> <span class="right"><i class="material-icons toggle activator">close</i></span></span>
+      <span class="activator card-title grey-text text-darken-4"><%= obj.title %> <span class="right"><i
+            class="material-icons toggle activator">close</i></span></span>
       <a href="/#/projects/<%= id %>">View This Project</a>
       <p><%= obj.description %></p>
     </div>
   </div>
-</div> 
+</div>
+
+<% } else { %>
+<div class="col s12 m6 l4">
+  <div class="card small">
+    <div class="card-image waves-effect waves-block waves-light">
+      <a href="#projects/<%= id %>"><img src="<%= obj.attributes.image %>"></a>
+    </div>
+    <div class="card-content">
+      <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= obj.attributes.title %></span>
+    </div>
+    <div class="card-action white">
+      <!-- this.slugify(obj.status)  -->
+      <span class="small left"><i class="iconography "></i> <%= obj.attributes.status %></span><span
+        class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="activator card-title grey-text text-darken-4"><%= obj.attributes.title %> <span class="right"><i
+            class="material-icons toggle activator">close</i></span></span>
+      <a href="/#/projects/<%= id %>">View This Project</a>
+      <p><%= obj.attributes.description %></p>
+    </div>
+  </div>
+  <% } %>
