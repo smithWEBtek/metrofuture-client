@@ -10,4 +10,10 @@
     <% } else { %>
     <h5>No projects for <%= data.attributes.name %>.</h5> <br />
     <% }; %>
+
+    <% $('#toggle-images').on('click', function (e) { %>
+    <%  e.preventDefault(); %>
+    <%  $('.card-image').hide(); %>
+    <%}); %>
+
   </div>

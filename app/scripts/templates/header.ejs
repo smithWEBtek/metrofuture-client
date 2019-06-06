@@ -5,11 +5,9 @@
       <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
       <ul class="right hide-on-med-and-down">
         <li class="chosen-list-item">
-
           <form action="#">
             <select class="chosen-select" id="desktop-menu">
               <option value="#">View all projects</option>
-
               <% _.each(data, function(option) { %>
               <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
               <option value="municipalities/<%= option.attributes.geojson.id %>"><%= option.attributes.name %></option>
@@ -19,8 +17,8 @@
               <% }); %>
             </select>
           </form>
-
         </li>
+        <a class="waves-effect waves-light btn hero indigo darken-4" id="toggle-images">hide images</a>
         <li>
           <a class="white-text" id="toggleAbout">
             <i class="mdi-action-info-outline"></i>
