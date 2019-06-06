@@ -4,8 +4,8 @@
     <h5><%= data.attributes.name %></h5>
   </div>
   <div id="projects-grid" class="row">
-    <% if(data.attributes.projects) { %>
-    <% _.each(data.attributes.projects, function ( project ) {  %>
+    <% if(data.attributes.subregion_unique_projects) { %>
+    <% _.each(data.attributes.subregion_unique_projects, function ( project ) {  %>
     <%= projectCardTemplate(project) %>
     <%  }); %>
     <% } else { %>
