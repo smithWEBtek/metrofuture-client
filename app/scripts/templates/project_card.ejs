@@ -6,19 +6,19 @@
     </div>
 
     <div class="card-content">
-      <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= obj.title %></span>
+      <span class="activator card-title black-text text-darken-5 ellipsis-truncation"><%= obj.title %></span>
     </div>
 
     <div class="card-action white">
       <!-- this.slugify(obj.status)  -->
-      <span class="small left"><i class="iconography "></i> <%= obj.status %></span><span class="small right"><i
-          class="material-icons toggle right activator">more_vert</i></span>
+      <span class="small left"><i class="iconography "></i> <%= obj.status %></span>
+      <span class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
     </div>
     <div class="card-reveal">
-      <span class="activator card-title grey-text text-darken-4"><%= obj.title %> <span class="right"><i
-            class="material-icons toggle activator">close</i></span></span>
+      <!-- <span class="activator card-title black-text text-darken-5"><%= obj.title %> <span class="right"> -->
+      <span><i class="material-icons toggle activator">close</i></span></span>
       <!-- <a href="/#/projects/<%= id %>">View This Project</a> -->
-      <p><%= obj.description %></p>
+      <p style="font-size: 12px"><%= obj.description %></p>
     </div>
   </div>
 </div>
@@ -30,18 +30,18 @@
       <a href="#projects/<%= id %>"><img src="images/samples/<%= Math.floor(Math.random()*25) + 1 %>.jpg"></a>
     </div>
     <div class="card-content">
-      <span class="activator card-title grey-text text-darken-4 ellipsis-truncation"><%= obj.attributes.title %></span>
+      <span class="activator card-title black-text text-darken-5 ellipsis-truncation"><%= obj.attributes.title %></span>
     </div>
     <div class="card-action white">
       <!-- this.slugify(obj.status)  -->
-      <span class="small left"><i class="iconography "></i> <%= obj.attributes.status %></span><span
-        class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
+      <span class="small left"><i class="iconography "></i> <%= obj.attributes.status %></span>
+      <span class="small right"><i class="material-icons toggle right activator">more_vert</i></span>
     </div>
     <div class="card-reveal">
-      <span class="activator card-title grey-text text-darken-4"><%= obj.attributes.title %> <span class="right"><i
-            class="material-icons toggle activator">close</i></span></span>
+      <!-- <span class="activator card-title black-text text-darken-5"><%= obj.attributes.title %> <span class="right"> -->
+      <span><i class="material-icons toggle activator">close</i></span></span>
       <!-- <a href="/#/projects/<%= id %>">View This Project</a> -->
-      <p><%= obj.attributes.description %></p>
+      <p style="font-size: 12px"><%= obj.attributes.description %></p>
     </div>
   </div>
   <% } %>

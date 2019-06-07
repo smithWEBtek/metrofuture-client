@@ -12,8 +12,9 @@
     <% }; %>
 
     <% $('#toggle-images').on('click', function (e) { %>
-    <%  e.preventDefault(); %>
-    <%  $('.card-image').hide(); %>
+    <% e.preventDefault(); %>
+    <% $('.card-image').hide(); %>
+    <% $('i').hide(); %>
+    <% $('.card-reveal').removeClass('card-reveal') %>
     <%}); %>
-
   </div>

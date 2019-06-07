@@ -184,10 +184,6 @@ MfiaClient.Views = MfiaClient.Views || {};
             // element.attributes.attributes.geojson.properties["type"] = element.attributes["type"];
             //is it valid geojson? can't leaflet just check this...
 
-
-            // debugger;
-
-
             // if (element.attributes.attributes.geojson.type != undefined) {
             // that.layers.subregions.addData(element.attributes.attributes.geojson);
             // }
