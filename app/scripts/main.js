@@ -10,8 +10,8 @@ window.MfiaClient = {
 
     //API Endpoint
     // MfiaClient.API = "http://mfia.dev.mapc.org"
-    MfiaClient.API = "http://localhost:3000/"
-    // MfiaClient.API = "http://swt-metrofuture-api.herokuapp.com/"
+    // MfiaClient.API = "http://localhost:3000/"
+    MfiaClient.API = "http://swt-metrofuture-api.herokuapp.com/"
 
     //intitialize Marionette app
     this.app = new Marionette.Application();
