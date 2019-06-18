@@ -18,7 +18,7 @@
     <h5><a name="Single Municipality">Single Municipality projects assocated with <%= data.attributes.name %></a></h5>
     <% _.each( data.attributes.projects, function ( project ) {  %>
     <% if(project.project_geography === "single municipality") { %>
-    <%= projectCardTemplate(project) %>
+    <div class="single-municipality"><%= projectCardTemplate(project) %></div>
     <% } %>
     <% }) %>
   </div>
@@ -27,14 +27,14 @@
   <br />
   <br />
   <br />
-  <div id="projects-grid" class="row multi-municipalities">
+  <div id="projects-grid" class="row">
     <p><a href="#top"><strong>top^ </stong>
     </p>
     <h5>Multiple Municipalities projects assocated with
       <%= data.attributes.name %></h5>
     <% _.each( data.attributes.projects, function ( project ) {  %>
     <% if(project.project_geography === "multiple municipalities") { %>
-    <%= projectCardTemplate(project) %>
+    <div class="multi-municipalities"><%= projectCardTemplate(project) %></div>
     <% } %>
     <% }) %>
   </div>
@@ -43,15 +43,13 @@
   <br />
   <br />
   <br />
-  <div id="projects-grid" class="row region-wide">
+  <div id="projects-grid" class="row">
     <p><a href="#top"><strong>top^ </stong>
     </p>
     <h5>MAPC Region-Wide projects assocated with <%= data.attributes.name %></h5>
     <% _.each( data.attributes.projects, function ( project ) {  %>
     <% if(project.project_geography === "mapc region-wide") { %>
-    <%= projectCardTemplate(project) %>
-    <% } %>
-    <% }) %>
+    <div class="region-wide"><%= projectCardTemplate(project) %></div> <% } %> <% }) %>
   </div>
   <a name="State Wide"></a>
   <br />
@@ -64,8 +62,9 @@
     <h5><a name="State Wide">State Wide projects assocated with <%= data.attributes.name %></h5>
     <% _.each( data.attributes.projects, function ( project ) {  %>
     <% if(project.project_geography === "state-wide") { %>
-    <%= projectCardTemplate(project) %>
+    <div class="state-wide"><%= projectCardTemplate(project) %></div>
     <% } %>
     <% }) %>
   </div>
+</div>
 </div>
