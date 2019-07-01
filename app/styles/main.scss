@@ -374,3 +374,19 @@ body {
 .state-wide {
     border: 2px solid  #1A237E;
 }
+
+// project_card.ejs background color style based on project_geography
+.project-geography-single {
+  background-color: rgb(241, 192, 119);
+}
+.project-geography-multiple {
+  background-color: rgb(151, 195, 252);
+}
+
+.project-geography-subregion-wide {
+  background-color: rgb(197, 241, 138);
+}
+
+.project-geography-state-wide {
+  background-color: rgb(242, 222, 253);
+}
