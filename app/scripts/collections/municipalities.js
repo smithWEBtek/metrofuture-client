@@ -7,12 +7,11 @@ MfiaClient.Collections = MfiaClient.Collections || {};
 
     model: MfiaClient.Models.Municipality,
     url: function () {
-      // return  MfiaClient.API + '/municipalities?filter[mapc]=true&page[size]=351';
       return MfiaClient.API + '/municipalities';
     },
     parse: function (response) {
-      return response.data;
+      // return _.sortBy(response, 'attributes.data')[0];
+      return response;
     }
-
   });
 })();

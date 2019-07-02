@@ -1,25 +1,20 @@
 <div class="section container">
   <div class="row">
-    <h2><%= data.attributes.name %></h2>
-    <button class="waves-effect waves-light btn hero indigo darken-4"><a href="#Single Municipality">Single
-        Municipality
-      </a></button>
-    <button class="waves-effect waves-light btn hero indigo darken-4"><a href="#Multiple Municipalities">Multiple
-        Municipalities </a></button>
-    <button class="waves-effect waves-light btn hero indigo darken-4"><a href="#MAPC Region-Wide">MAPC Region-Wide
-      </a></button>
-    <button class="waves-effect waves-light btn hero indigo darken-4"><a href="#State Wide">State Wide</a></button>
+    <h4><%= data.attributes.name %></h4>
+    <div class="geography__nav">
+      <a href="#Single Municipality" class="geography__nav-link">Single Municipality</a>
+      <a href="#Multiple Municipalities" class="geography__nav-link">Multiple Municipalities</a>
+      <a href="#MAPC Region-Wide" class="geography__nav-link">MAPC Region-Wide</a>
+      <a href="#State Wide" class="geography__nav-link">State Wide</a>
+    </div>
     <i name="top"></i>
   </div>
   <br />
-  <div id="projects-grid" class="row single-municipality">
-    <p><a href="#top"><strong>top^ </stong>
-    </p>
+  <div class="row">
+    <p><strong><a href="#top">top^</a></strong></p>
     <h5><a name="Single Municipality">Single Municipality projects assocated with <%= data.attributes.name %></a></h5>
-    <% _.each( data.attributes.projects, function ( project ) {  %>
-    <% if(project.project_geography === "single municipality") { %>
-    <div class="single-municipality"><%= projectCardTemplate(project) %></div>
-    <% } %>
+    <% _.each( data.attributes.projects.filter(p => p.project_geography === 'single municipality'), function ( project ) {  %>
+    <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
   <a name="Multiple Municipalities"></a>
@@ -27,15 +22,13 @@
   <br />
   <br />
   <br />
-  <div id="projects-grid" class="row">
-    <p><a href="#top"><strong>top^ </stong>
+  <div class="row">
+    <p><strong><a href="#top">top^</a></strong></p>
     </p>
     <h5>Multiple Municipalities projects assocated with
       <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects, function ( project ) {  %>
-    <% if(project.project_geography === "multiple municipalities") { %>
-    <div class="multi-municipalities"><%= projectCardTemplate(project) %></div>
-    <% } %>
+    <% _.each( data.attributes.projects.filter(p => p.project_geography === 'multiple municipalities'), function ( project ) {  %>
+    <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
   <a name="MAPC Region-Wide"></a>
@@ -43,28 +36,25 @@
   <br />
   <br />
   <br />
-  <div id="projects-grid" class="row">
-    <p><a href="#top"><strong>top^ </stong>
+  <div class="row">
+    <p><strong><a href="#top">top^</a></strong></p>
     </p>
     <h5>MAPC Region-Wide projects assocated with <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects, function ( project ) {  %>
-    <% if(project.project_geography === "mapc region-wide") { %>
-    <div class="region-wide"><%= projectCardTemplate(project) %></div> <% } %> <% }) %>
+    <% _.each( data.attributes.projects.filter(p => p.project_geography == 'mapc region-wide'), function ( project ) {  %>
+    <div><%= projectCardTemplate(project) %></div>
+    <% }) %>
   </div>
   <a name="State Wide"></a>
   <br />
   <br />
   <br />
   <br />
-  <div id="projects-grid" class="row state-wide">
-    <p><a href="#top"><strong>top^ </stong>
+  <div class="row">
+    <p><strong><a href="#top">top^</a></strong></p>
     </p>
     <h5><a name="State Wide">State Wide projects assocated with <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects, function ( project ) {  %>
-    <% if(project.project_geography === "state-wide") { %>
-    <div class="state-wide"><%= projectCardTemplate(project) %></div>
-    <% } %>
+    <% _.each( data.attributes.projects.filter(p => p.project_geography == 'state-wide'), function ( project ) {  %>
+    <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
-</div>
 </div>

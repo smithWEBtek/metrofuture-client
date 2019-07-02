@@ -40,9 +40,7 @@ MfiaClient.Models = MfiaClient.Models || {};
     },
 
     parse: function (response, options) {
-      // response.attributes.id = response.attributes.muni_id;
       return response;
     }
   });
-
 })();
