@@ -8,7 +8,7 @@
 
           <form action="#">
             <select class="chosen-select" id="desktop-menu">
-              <option value="#">View all projects</option>
+              <option value="#">Choose Municipality or Subregion</option>
               <% _.each(data, function(option) { %>
               <% if(option.data) { %>
               <% let sorted_data = _.sortBy(option.data, (m) => m.attributes.name) %>

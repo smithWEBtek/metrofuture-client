@@ -12,8 +12,10 @@
   <br />
   <div class="row">
     <p><strong><a href="#top">top^</a></strong></p>
-    <h5><a name="Single Municipality">Single Municipality projects assocated with <%= data.attributes.name %></a></h5>
-    <% _.each( data.attributes.projects.filter(p => p.project_geography === 'single municipality'), function ( project ) {  %>
+    <h5><a name="Single Municipality">"Single Municipality" projects assocated with <%= data.attributes.name %></a></h5>
+    <% let singleMunicipalityProjects = data.attributes.projects.filter(p => p.project_geography == 'single municipality') %>
+    <% let uniqueSingleMunicipalityProjects = _.uniq(singleMunicipalityProjects, 'title') %>
+    <% _.each( uniqueSingleMunicipalityProjects, function ( project ) {  %>
     <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
@@ -25,9 +27,11 @@
   <div class="row">
     <p><strong><a href="#top">top^</a></strong></p>
     </p>
-    <h5>Multiple Municipalities projects assocated with
+    <h5>"Multiple Municipalities" projects assocated with
       <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects.filter(p => p.project_geography === 'multiple municipalities'), function ( project ) {  %>
+    <% let municipalityWideProjects = data.attributes.projects.filter(p => p.project_geography == 'multiple municipalities') %>
+    <% let uniqueMunicipalityWideProjects = _.uniq(municipalityWideProjects, 'title') %>
+    <% _.each( uniqueMunicipalityWideProjects, function ( project ) {  %>
     <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
@@ -39,8 +43,10 @@
   <div class="row">
     <p><strong><a href="#top">top^</a></strong></p>
     </p>
-    <h5>MAPC Region-Wide projects assocated with <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects.filter(p => p.project_geography == 'mapc region-wide'), function ( project ) {  %>
+    <h5>"MAPC Region-Wide" projects assocated with <%= data.attributes.name %></h5>
+    <% let regionWideProjects = data.attributes.projects.filter(p => p.project_geography == 'mapc region-wide') %>
+    <% let uniqueRegionWideProjects = _.uniq(regionWideProjects, 'title') %>
+    <% _.each( uniqueRegionWideProjects, function ( project ) {  %>
     <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>
@@ -52,8 +58,10 @@
   <div class="row">
     <p><strong><a href="#top">top^</a></strong></p>
     </p>
-    <h5><a name="State Wide">State Wide projects assocated with <%= data.attributes.name %></h5>
-    <% _.each( data.attributes.projects.filter(p => p.project_geography == 'state-wide'), function ( project ) {  %>
+    <h5>State Wide" projects assocated with <%= data.attributes.name %></h5>
+    <% let stateWideProjects = data.attributes.projects.filter(p => p.project_geography == 'state-wide') %>
+    <% let uniqueStateWideProjects = _.uniq(stateWideProjects, 'title') %>
+    <% _.each( uniqueStateWideProjects, function ( project ) {  %>
     <div><%= projectCardTemplate(project) %></div>
     <% }) %>
   </div>

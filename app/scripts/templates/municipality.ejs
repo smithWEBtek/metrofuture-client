@@ -12,9 +12,9 @@
     <i name="top"><% $('#about-section').hide() %></i>
     <br />
     <div id="projects-grid" class="row single-municipality">
-      <p><a href="#top"><strong>top^ </stong>
+      <p><a href="#top"><strong>top^ </strong></a>
       </p>
-      <h5><a name="Single Municipality">Single Municipality projects in <%= data.attributes.name %></a>
+      <h5>"Single Municipality" projects associated with <%= data.attributes.name %>
       </h5>
       <% _.each( data.attributes.projects, function ( project ) {  %>
       <% if(project.project_geography === "single municipality") { %>
@@ -25,12 +25,10 @@
     <a name="Multiple Municipalities"></a>
     <br />
     <br />
-    <br />
-    <br />
     <div id="projects-grid" class="row">
-      <p><a href="#top"><strong>top^ </stong>
+      <p><a href="#top"><strong>top^ </strong></a>
       </p>
-      <h5>Multiple Municipalities projects in
+      <h5>"Multiple Municipalities" projects associated with
         <%= data.attributes.name %></h5>
       <% _.each( data.attributes.projects, function ( project ) {  %>
       <% if(project.project_geography === "multiple municipalities") { %>
@@ -41,12 +39,10 @@
     <a name="MAPC Region-Wide"></a>
     <br />
     <br />
-    <br />
-    <br />
     <div id="projects-grid" class="row">
-      <p><a href="#top"><strong>top^ </stong>
+      <p><a href="#top"><strong>top^ </strong></a>
       </p>
-      <h5>MAPC Region-Wide projects in <%= data.attributes.name %></h5>
+      <h5>"MAPC Region-Wide" projects associated with <%= data.attributes.name %></h5>
       <% _.each( data.attributes.projects, function ( project ) {  %>
       <% if(project.project_geography === "mapc region-wide") { %>
       <div><%= projectCardTemplate(project) %></div> <% } %> <% }) %>
@@ -54,12 +50,10 @@
     <a name="State Wide"></a>
     <br />
     <br />
-    <br />
-    <br />
     <div id="projects-grid" class="row state-wide">
-      <p><a href="#top"><strong>top^ </stong>
+      <p><a href="#top"><strong>top^ </strong></a>
       </p>
-      <h5><a name="State Wide">State Wide projects in <%= data.attributes.name %></h5>
+      <h5>"State Wide" projects associated with <%= data.attributes.name %></h5>
       <% _.each( data.attributes.projects, function ( project ) {  %>
       <% if(project.project_geography === "state-wide") { %>
       <div><%= projectCardTemplate(project) %></div>

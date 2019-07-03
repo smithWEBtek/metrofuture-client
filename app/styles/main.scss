@@ -39,12 +39,21 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 
 .card {
     .card-content {
-        // height:100px;
+        height:100px;
+        padding: .02rem; 
+
         .card-title {
             line-height: 27px;
-            font-size: 18px;
+            font-size: 14px;
+            font-weight: 500;
             z-index: 600;
         }
+        .card-title:hover {
+          background-color: rgb(155, 196, 243);
+          border-radius: 5px;
+          border: 1px solid rgb(88, 114, 145);
+        }
+        
         .card-action {
             z-index: 999;
 
@@ -52,6 +61,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     }
     .small {
         font-size: .85rem;
+        margin: 0;
     }
     .iconography {
         font-size: .8rem;
@@ -61,6 +71,16 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
         margin-left: 0px;
         cursor: pointer;
     }
+  .card-reveal {
+    background-color: aliceblue;
+    margin-right: .5rem;
+    padding: 0;
+    width: 95%;
+  }
+}
+
+div.card.small {
+  margin: 0;
 }
 
 
@@ -495,28 +515,4 @@ body {
     font-size: 1rem;
     font-weight: 400;
   }
-}
-
-.card-reveal > span {
-  background-color: rgba(206, 196, 189, 0.205);
-  border: 1px solid gray;
-  border-radius: 15px;
-  padding: .5rem;
-}
-
-
-.region-wide {
-  color: black;
-}
-
-.multi-municipalities {
-  color: black;
-}
-
-.region-wide.card {
-  color: black;
-}
-
-.state-wide {
-  color: black;
 }
