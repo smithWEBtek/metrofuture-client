@@ -17,6 +17,10 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     min-height:540px;
 }
 
+i {
+  padding: .1rem;
+}
+
 #map {
     position:relative;
 }
@@ -45,13 +49,12 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
         .card-title {
             line-height: 27px;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 450;
             z-index: 600;
         }
         .card-title:hover {
-          background-color: rgb(155, 196, 243);
+          background-color: rgb(206, 228, 247);
           border-radius: 5px;
-          border: 1px solid rgb(88, 114, 145);
         }
         
         .card-action {

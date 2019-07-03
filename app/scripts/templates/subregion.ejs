@@ -9,9 +9,7 @@
     </div>
     <i name="top"></i>
   </div>
-  <br />
   <div class="row">
-    <p><strong><a href="#top">top^</a></strong></p>
     <h5><a name="Single Municipality">"Single Municipality" projects assocated with <%= data.attributes.name %></a></h5>
     <% let singleMunicipalityProjects = data.attributes.projects.filter(p => p.project_geography == 'single municipality') %>
     <% let uniqueSingleMunicipalityProjects = _.uniq(singleMunicipalityProjects, 'title') %>

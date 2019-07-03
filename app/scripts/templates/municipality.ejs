@@ -1,7 +1,6 @@
 <div id="projects-grid" class="row">
   <% if(data.attributes.projects.length >= 1) { %>
   <div class="section container">
-
     <h4><%= data.attributes.name %></h4>
     <div class="geography__nav">
       <a href="#Single Municipality" class="geography__nav-link">Single Municipality</a>
@@ -10,10 +9,7 @@
       <a href="#State Wide" class="geography__nav-link">State Wide</a>
     </div>
     <i name="top"><% $('#about-section').hide() %></i>
-    <br />
     <div id="projects-grid" class="row single-municipality">
-      <p><a href="#top"><strong>top^ </strong></a>
-      </p>
       <h5>"Single Municipality" projects associated with <%= data.attributes.name %>
       </h5>
       <% _.each( data.attributes.projects, function ( project ) {  %>
