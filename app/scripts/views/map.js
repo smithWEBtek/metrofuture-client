@@ -1,4 +1,4 @@
-/*global MfiaClient, Backbone, JST*/
+ /*global MfiaClient, Backbone, JST*/
 
 MfiaClient.Views = MfiaClient.Views || {};
 
@@ -203,3 +203,4 @@ MfiaClient.Views = MfiaClient.Views || {};
     }
   });
 })();
+
