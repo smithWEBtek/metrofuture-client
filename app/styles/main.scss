@@ -17,6 +17,10 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     min-height:540px;
 }
 
+i {
+  padding: .1rem;
+}
+
 #map {
     position:relative;
 }
@@ -39,12 +43,20 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
 
 .card {
     .card-content {
-        // height:100px;
+        height:100px;
+        padding: .02rem; 
+
         .card-title {
             line-height: 27px;
-            font-size: 20px;
+            font-size: 14px;
+            font-weight: 450;
             z-index: 600;
         }
+        .card-title:hover {
+          background-color: rgb(206, 228, 247);
+          border-radius: 5px;
+        }
+        
         .card-action {
             z-index: 999;
 
@@ -52,6 +64,7 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
     }
     .small {
         font-size: .85rem;
+        margin: 0;
     }
     .iconography {
         font-size: .8rem;
@@ -61,6 +74,16 @@ html,body { height: 100%; margin: 0px; padding: 0px; }
         margin-left: 0px;
         cursor: pointer;
     }
+  .card-reveal {
+    background-color: aliceblue;
+    margin-right: .5rem;
+    padding: 0;
+    width: 95%;
+  }
+}
+
+div.card.small {
+  margin: 0;
 }
 
 
@@ -160,7 +183,11 @@ img.hero {
 }
 
 .btn.hero {
-    margin: 5px 0;
+    // margin: 5px 0;
+
+    a {
+      color: white;
+    }
 }
 
 .progress {
@@ -359,18 +386,136 @@ body {
     }
 }
 
-.region-wide {
-    border: 2px solid #FF9800;
+.geography__nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 80%;
+  justify-items: center;
+
+  .geography__nav-link {
+    background-color: $tabs-bg-color;
+    color: white;
+    margin: 0;
+    padding: .4rem;
+    width: 100%;
+  }
 }
 
-.multi-municipalities.card {
-    border: 2px solid rgb(153, 153, 160);
+// department colors for project card title bars, using attribute: primary_department_css_class
+
+.primary-department-completed {
+  background-color: rgb(204, 204, 204);
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
 
-.region-wide.card {
-    border: 2px solid  rgb(88, 92, 134);
+.primary-department-arts_and_culture {
+  background-color: #EA8640;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
 
-.state-wide {
-    border: 2px solid  #1A237E;
+.primary-department-transportation {
+  background-color: #AE9151;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-public_health {
+  background-color: #CE9FDF;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-government_affairs {
+  background-color: #539AE9;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-strategic_initiatives {
+  background-color: #12ADB3;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-data_services {
+  background-color: #E6D15C;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-municipal_collaboration {
+  background-color: #F4CBB0;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-clean_energy {
+  background-color: #14595C;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-land_use {
+  background-color: #BFADA6;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-environment {
+  background-color: #7D2104;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-communications {
+  background-color: #69214F;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.primary-department-other {
+  background-color: #574D41;
+
+  span {
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }

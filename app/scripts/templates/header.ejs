@@ -5,18 +5,25 @@
       <a id="logo-container" href="/#" class="hide-on-med-and-up small">METROFUTURE IN ACTION</a>
       <ul class="right hide-on-med-and-down">
         <li class="chosen-list-item">
+        
           <form action="#">
             <select class="chosen-select" id="desktop-menu">
-              <option value="#">View all projects</option>
+              <option value="#">Choose Municipality or Subregion</option>
               <% _.each(data, function(option) { %>
-              <% if(option.type == "municipality" && option.attributes.projects.length > 0) { %>
-              <option value="municipalities/<%= option.attributes.geojson.id %>"><%= option.attributes.name %></option>
-              <% } else if(option.type == "subregion"){ %>
+              <% if(option.data) { %>
+              <% let sorted_data = _.sortBy(option.data, (m) => m.attributes.name) %>
+              <% sorted_data.forEach(muni => { %>
+              <% console.log('muni: ', muni.attributes.name) %>
+              <option value="municipalities/<%= muni.attributes.geojson.id %>"><%= muni.attributes.name %></option>
+              <% }) %>
+              <% } else { %>
+              <% console.log('subregion: ', option.attributes.name) %>
               <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
               <% } %>
               <% }); %>
             </select>
           </form>
+
         </li>
         <li>
           <a class="white-text" id="toggleAbout">
@@ -29,17 +36,24 @@
           <form action="#">
             <select class="chosen-select black-text" data-placeholder="Select a geography" id="mobile-menu">
               <option value="">All Projects</option>
-              <% _.each(data, function(option) { %>
-              <option value="subregions/<%= option.id %>"><%= option.attributes.name %></option>
+
+              <% _.each(data[0].data, function(muni) { %>
+              <% if(muni.type == "municipality" && muni.attributes.projects.length > 0) { %>
+              <option value="municipalities/<%= muni.attributes.geojson.id %>"><%= muni.attributes.name %></option>
+              <% } %>
               <% }); %>
+
+              <% _.each(data.splice(1, data.length-1), function(subregion) { %>
+              <% if(subregion.type == "subregion") { %>
+              <option value="subregions/<%= subregion.attributes.id %>"><%= subregion.attributes.name %>
+              </option>
+              <% } %>
+              <% }); %>
+
             </select>
           </form>
         </li>
-        <li>
-          <a id="toggleAbout">
-            <span class="black-text"><i class="mdi-action-info-outline left"></i> Toggle About</span>
-          </a>
-        </li>
+
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
