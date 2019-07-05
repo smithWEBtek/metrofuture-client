@@ -1,5 +1,7 @@
 /*global MfiaClient, $*/
 
+window = this;
+
 window.MfiaClient = {
   Models: {},
   Collections: {},
